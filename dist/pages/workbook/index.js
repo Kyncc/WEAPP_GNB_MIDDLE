@@ -102,7 +102,7 @@ var Statistics = function (_wepy$page) {
     value: function _getMyWorkbook(id) {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/workbook',
+          url: 'https://middle.guinaben.com/workbook',
           data: {
             textbookId: id
           },

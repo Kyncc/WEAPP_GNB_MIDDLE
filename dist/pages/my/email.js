@@ -117,7 +117,7 @@ var MyEmail = function (_wepy$page) {
       _wepy2.default.showLoading({ title: '提交中' });
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/member/infoEdit',
+          url: 'https://middle.guinaben.com/member/infoEdit',
           method: 'POST',
           data: {
             email: email
@@ -143,9 +143,9 @@ var MyEmail = function (_wepy$page) {
     value: function _sendEmail(id, type) {
       var url = void 0;
       if (type === 'statistics') {
-        url = 'https://primary.guinaben.com/textbook/statistics/download';
+        url = 'https://middle.guinaben.com/textbook/statistics/download';
       } else {
-        url = 'https://primary.guinaben.com/workbook/chapter/errorDownload';
+        url = 'https://middle.guinaben.com/workbook/chapter/errorDownload';
       }
       _wepy2.default.showLoading({ title: '请稍候' });
       return new Promise(function (resolve, reject) {

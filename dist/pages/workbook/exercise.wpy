@@ -98,7 +98,7 @@ export default class WorkbookExercise extends wepy.page {
   _getExercise (id) {
     return new Promise((resolve, reject) => {
       wepy.request({
-        url: 'https://primary.guinaben.com/workbook/chapter/exercise',
+        url: 'https://middle.guinaben.com/workbook/chapter/exercise',
         data: {
           chapterId: id
         },
@@ -117,7 +117,7 @@ export default class WorkbookExercise extends wepy.page {
     wepy.showLoading({title: '提交中'})
     return new Promise((resolve, reject) => {
       wepy.request({
-        url: 'https://primary.guinaben.com/workbook/chapter/setExercise',
+        url: 'https://middle.guinaben.com/workbook/chapter/setExercise',
         method: 'POST',
         data: {
           chapterId: chapterId,

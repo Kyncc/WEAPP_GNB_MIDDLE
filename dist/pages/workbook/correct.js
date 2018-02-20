@@ -48,7 +48,7 @@ var WorkbookCorrect = function (_wepy$page) {
     value: function _getContent(id) {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/workbook/chapter/correct',
+          url: 'https://middle.guinaben.com/workbook/chapter/correct',
           data: {
             chapterId: id
           },

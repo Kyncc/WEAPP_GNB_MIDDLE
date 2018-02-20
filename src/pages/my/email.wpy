@@ -83,7 +83,7 @@
       wepy.showLoading({title: '提交中'})
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/member/infoEdit',
+          url: 'https://middle.guinaben.com/member/infoEdit',
           method: 'POST',
           data: {
             email: email
@@ -106,9 +106,9 @@
     _sendEmail (id, type) {
       let url
       if (type === 'statistics') {
-        url = 'https://primary.guinaben.com/textbook/statistics/download'
+        url = 'https://middle.guinaben.com/textbook/statistics/download'
       } else {
-        url = 'https://primary.guinaben.com/workbook/chapter/errorDownload'
+        url = 'https://middle.guinaben.com/workbook/chapter/errorDownload'
       }
       wepy.showLoading({title: '请稍候'})
       return new Promise((resolve, reject) => {

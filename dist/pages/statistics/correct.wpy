@@ -48,7 +48,7 @@
     _getContent (id) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/textbook/statistics/correct',
+          url: 'https://middle.guinaben.com/textbook/statistics/correct',
           data: {
             chapterId: id
           },

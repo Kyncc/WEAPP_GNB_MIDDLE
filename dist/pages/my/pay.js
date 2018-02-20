@@ -82,7 +82,7 @@ var MyPay = function (_wepy$page) {
     value: function _getUserInfo() {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/member/info',
+          url: 'https://middle.guinaben.com/member/info',
           success: function success(res) {
             _wepy2.default.setStorageSync('User', res);
             resolve(res);

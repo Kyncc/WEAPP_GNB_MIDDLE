@@ -48,7 +48,7 @@ var StatisticsCorrect = function (_wepy$page) {
     value: function _getContent(id) {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/textbook/statistics/correct',
+          url: 'https://middle.guinaben.com/textbook/statistics/correct',
           data: {
             chapterId: id
           },

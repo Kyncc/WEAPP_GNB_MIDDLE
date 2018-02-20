@@ -137,7 +137,7 @@ var WorkbookWant = function (_wepy$page) {
       _wepy2.default.showLoading({ title: '请稍候' });
       return new Promise(function (resolve, reject) {
         _wepy2.default.uploadFile({
-          url: 'https://primary.guinaben.com/upload/img',
+          url: 'https://middle.guinaben.com/upload/img',
           filePath: file,
           name: 'file',
           header: {
@@ -169,7 +169,7 @@ var WorkbookWant = function (_wepy$page) {
       _wepy2.default.showLoading({ title: '请稍候' });
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/workbook/want',
+          url: 'https://middle.guinaben.com/workbook/want',
           method: 'POST',
           data: {
             first: first,

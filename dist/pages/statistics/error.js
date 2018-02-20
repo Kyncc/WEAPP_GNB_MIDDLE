@@ -123,7 +123,7 @@ var StatisticsError = function (_wepy$page) {
     value: function _getErrorList(id, offset) {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/textbook/statistics/error',
+          url: 'https://middle.guinaben.com/textbook/statistics/error',
           data: {
             chapterId: id,
             offset: offset

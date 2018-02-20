@@ -202,7 +202,7 @@ var WorkbookExercise = function (_wepy$page) {
     value: function _getExercise(id) {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/workbook/chapter/exercise',
+          url: 'https://middle.guinaben.com/workbook/chapter/exercise',
           data: {
             chapterId: id
           },
@@ -224,7 +224,7 @@ var WorkbookExercise = function (_wepy$page) {
       _wepy2.default.showLoading({ title: '提交中' });
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/workbook/chapter/setExercise',
+          url: 'https://middle.guinaben.com/workbook/chapter/setExercise',
           method: 'POST',
           data: {
             chapterId: chapterId,

@@ -77,7 +77,7 @@ export default class StatisticsError extends wepy.page {
   _getErrorList (id, offset) {
     return new Promise((resolve, reject) => {
       wepy.request({
-        url: 'https://primary.guinaben.com/textbook/statistics/error',
+        url: 'https://middle.guinaben.com/textbook/statistics/error',
         data: {
           chapterId: id,
           offset: offset

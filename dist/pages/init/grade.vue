@@ -45,7 +45,7 @@
       wepy.showLoading({title: '请稍候'})
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/member/infoEdit',
+          url: 'https://middle.guinaben.com/member/infoEdit',
           method: 'POST',
           data: {
             grade: user.grade,

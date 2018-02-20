@@ -146,7 +146,7 @@
     _getUserInfo () {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/member/info',
+          url: 'https://middle.guinaben.com/member/info',
           success (res) {
             wepy.setStorageSync('User', res)
             resolve(res)

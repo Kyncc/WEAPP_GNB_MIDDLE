@@ -92,7 +92,7 @@ var WorkbookError = function (_wepy$page) {
     value: function _getChapter(id) {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/workbook/chapter/error',
+          url: 'https://middle.guinaben.com/workbook/chapter/error',
           data: {
             chapterId: id
           },

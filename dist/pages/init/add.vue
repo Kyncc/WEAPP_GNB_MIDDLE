@@ -116,7 +116,7 @@
     _getAllWorkbook (id, name) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/workbook/all',
+          url: 'https://middle.guinaben.com/workbook/all',
           data: {
             textbookId: id,
             name: name
@@ -135,7 +135,7 @@
     _setWorkbook (id) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/workbook/edit',
+          url: 'https://middle.guinaben.com/workbook/edit',
           method: 'POST',
           data: {
             workbookId: id

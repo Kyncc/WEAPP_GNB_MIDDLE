@@ -72,7 +72,7 @@
     _getChapter (id) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/workbook/chapter/error',
+          url: 'https://middle.guinaben.com/workbook/chapter/error',
           data: {
             chapterId: id
           },

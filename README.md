@@ -1,7 +1,7 @@
-# GNB_PRIMARY_MATH
-> 小学错题归纳本--小程序
+# WEAPP_GNB_MIDDLE
+> 小程序--中学错题归纳本
 
-![二维码](http://img.guinaben.com/WEAPP_GNB_PRIMARY.jpg)
+![二维码](http://img.guinaben.com/WEAPP_GNB_MIDDLE.jpg)
 
 ## JS框架
 -	[小程序组件化开发框架-WePY](https://tencent.github.io/wepy/document.html#/)

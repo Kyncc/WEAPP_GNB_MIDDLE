@@ -110,7 +110,7 @@
       wepy.showLoading({title: '请稍候'})
       return new Promise((resolve, reject) => {
         wepy.uploadFile({
-          url: 'https://primary.guinaben.com/upload/img',
+          url: 'https://middle.guinaben.com/upload/img',
           filePath: file,
           name: 'file',
           header: {
@@ -139,7 +139,7 @@
       wepy.showLoading({title: '请稍候'})
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/workbook/want',
+          url: 'https://middle.guinaben.com/workbook/want',
           method: 'POST',
           data: {
             first: first,

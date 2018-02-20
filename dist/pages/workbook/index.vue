@@ -80,7 +80,7 @@ export default class Statistics extends wepy.page {
   _getMyWorkbook (id) {
     return new Promise((resolve, reject) => {
       wepy.request({
-        url: 'https://primary.guinaben.com/workbook',
+        url: 'https://middle.guinaben.com/workbook',
         data: {
           textbookId: id
         },

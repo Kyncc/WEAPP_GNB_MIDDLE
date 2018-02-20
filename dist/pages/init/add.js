@@ -135,7 +135,7 @@ var InitAddWorkbook = function (_wepy$page) {
     value: function _getAllWorkbook(id, name) {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/workbook/all',
+          url: 'https://middle.guinaben.com/workbook/all',
           data: {
             textbookId: id,
             name: name
@@ -157,7 +157,7 @@ var InitAddWorkbook = function (_wepy$page) {
     value: function _setWorkbook(id) {
       return new Promise(function (resolve, reject) {
         _wepy2.default.request({
-          url: 'https://primary.guinaben.com/workbook/edit',
+          url: 'https://middle.guinaben.com/workbook/edit',
           method: 'POST',
           data: {
             workbookId: id
