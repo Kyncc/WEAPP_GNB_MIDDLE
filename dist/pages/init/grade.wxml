@@ -5,8 +5,8 @@
       <text class="zan-col zan-col-24 zan-font-14 zan-c-gray-darker zan-center _a251fec" style="margin-top: 60rpx;">数学 新人教版</text>
     </view>
     <view class="zan-row _a251fec" style="margin-top: 30px;">
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="7">七年级</button>
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="8">八年级</button>
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="9">九年级</button>
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="1">七年级</button>
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="3">八年级</button>
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="5">九年级</button>
     </view>
   </view>
