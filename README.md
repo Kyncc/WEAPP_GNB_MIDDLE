@@ -10,6 +10,29 @@
 -	[有赞微信小程序UI库](https://github.com/youzan/zanui-weapp)
 - [ZanUI in WePY](https://github.com/brucx/wepy-zanui-demo)
 
+## 配置
+全局安装或更新WePY命令行工具
+```
+npm install wepy-cli -g
+```
+在开发目录中生成Demo开发项目
+```
+wepy new myproject
+```
+1.7.0之后的版本使用 wepy init standard myproject 初始化项目，使用 wepy list 查看项目模板
+切换至项目目录
+```
+cd myproject
+```
+安装依赖
+```
+npm  install
+```
+开启实时编译
+```
+wepy build --watch
+```
+
 ## 文件夹目录
 ```
 ├── dist          # 微信调试目录
@@ -21,13 +44,6 @@
     ├── workbook      # 记错题
     ├── statistics    # 错题本
     ├── my            # 我的
-```
-
-## 配置
-```
-npm/yarn install
-npm/wepy build --watch
-open 微信开发者工具 打开DIST文件夹
 ```
 
 ## 注意
