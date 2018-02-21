@@ -38,7 +38,7 @@
     </scroll-view>
     <view class="footer _2cedc4e">
       <view class="zan-row _2cedc4e">
-        <button class="zan-col zan-col-16 zan-col-offset-4 zan-btn zan-btn--primary _2cedc4e" bindtap="_download">下载{{error.length}}道错题</button>
+        <button class="zan-col zan-col-16 zan-col-offset-4 zan-btn zan-btn--primary _2cedc4e" bindtap="_download">下载{{count}}道错题</button>
       </view>
     </view>
   </view>

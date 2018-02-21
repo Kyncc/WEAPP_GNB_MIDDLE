@@ -83,7 +83,7 @@
     }
 
     onLoad() {
-      this.grade = wepy.getStorageSync('User').grade - 3
+      this.grade = wepy.getStorageSync('User').grade - 7
       this.textBookList = wepy.getStorageSync('User').textbook
       this.textbook = this.textBookList[Number(this.grade)].id
       this.$apply()

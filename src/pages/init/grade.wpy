@@ -18,9 +18,9 @@
       <text class="zan-col zan-col-24 zan-font-14 zan-c-gray-darker zan-center" style="margin-top: 60rpx;">数学 新人教版</text>
     </view>
     <view class="zan-row" style="margin-top: 30px;">
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(1)'>七年级</button>
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(3)'>八年级</button>
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(5)'>九年级</button>
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(1, 7)'>七年级</button>
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(3, 8)'>八年级</button>
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(5, 9)'>九年级</button>
     </view>
   </view>
 </template>
@@ -68,7 +68,7 @@
     }
 
     methods = {
-      async _intoAddWorkbook (grade) {
+      async _intoAddWorkbook (type, grade) {
         await this._setUserInfo({
           grade: grade,
           name: this.name,
@@ -77,7 +77,7 @@
           sex: this.sex
         })
         let name = ''
-        switch (grade) {
+        switch (type) {
           // case '0': { name = '七年级上册'; break }
           case '1': { name = '七年级下册'; break }
           // case '2': { name = '八年级上册'; break }
@@ -86,7 +86,7 @@
           case '5': { name = '九年级下册'; break }
         }
         // 获取当前年级的教材
-        let textbookId = (wepy.getStorageSync('User').textbook)[Number(grade)].id
+        let textbookId = (wepy.getStorageSync('User').textbook)[Number(type)].id
         wepy.redirectTo({ url: `/pages/init/add?grade=${grade}&name=${name}&textbookId=${textbookId}` })
       }
     }

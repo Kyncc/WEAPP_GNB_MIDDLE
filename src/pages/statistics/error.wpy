@@ -29,7 +29,7 @@
     </scroll-view>
     <view class="footer">
       <view class="zan-row">
-        <button class="zan-col zan-col-16 zan-col-offset-4 zan-btn zan-btn--primary" bindtap='_download'>下载{{error.length}}道错题</button>
+        <button class="zan-col zan-col-16 zan-col-offset-4 zan-btn zan-btn--primary" bindtap='_download'>下载{{count}}道错题</button>
       </view>
     </view>
   </view>
@@ -44,6 +44,7 @@ export default class StatisticsError extends wepy.page {
     offset: '',
     error: [],
     id: '',
+    count: 0,
     scrollHeight: 500,
     loading: true,
     nomore: false
@@ -63,6 +64,7 @@ export default class StatisticsError extends wepy.page {
         this.loading = false
         this.error = this.error.concat(res.errorList)
         this.offset = res.offset
+        this.count = res.number
         if (this.offset.length === 0) {
           this.nomore = true
         }
@@ -125,6 +127,7 @@ export default class StatisticsError extends wepy.page {
       this.loading = false
       this.error = result.errorList
       this.offset = result.offset
+      this.count = result.number
       if (this.offset.length === 0) {
         this.nomore = true
       }
