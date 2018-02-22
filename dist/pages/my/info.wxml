@@ -17,7 +17,7 @@
 
        <view class="zan-cell _6646d23">
         <view class="zan-cell__hd zan-field__title _6646d23">年级</view>
-        <picker class="zan-cell__bd _6646d23" bindchange="bindGradeChange" value="{{gradeIndex}}" range="{{gradeList}}">
+        <picker class="zan-cell__bd _6646d23" style="font-size: 14px;" bindchange="bindGradeChange" value="{{gradeIndex}}" range="{{gradeList}}">
           {{gradeList[gradeIndex]}}<text class="zan-arrow _6646d23"/>
         </picker>
        </view>

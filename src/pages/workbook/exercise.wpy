@@ -32,8 +32,8 @@
 
 <template>
   <view class="container">
-    <zanNoticebar1 :text="longText" componentId="static1"></zanNoticebar1>
-    <view class="zan-panel" style='margin-top: 5rpx;margin-bottom: 70px;'>
+    <zanNoticebar1 :text="longText" componentId="static1"/>
+    <view class="zan-panel" style='margin: 0 0 70px 0;'>
       <repeat for="{{ exercise.nodes }}" key="pindex" index="pindex" item="nodes">
         <view class="zan-panel-title zan-font-bold zan-c-black">{{ nodes.name }}</view>
         <view class="zan-cell flex" style="padding:12px 7px">
@@ -71,8 +71,8 @@ export default class WorkbookExercise extends wepy.page {
   methods = {
     /** 上传错题 */
     async _upload () {
-      let answerId = [] // 题目ID数组
-      let answer = [] // 题目答案数组
+      let answerId = []     // 题目ID数组
+      let answer = []       // 题目答案数组
       let allCorrect = true // 全部为真的判断
       for (let nodes of this.exercise.nodes) {
         for (let questions of nodes.questions) {

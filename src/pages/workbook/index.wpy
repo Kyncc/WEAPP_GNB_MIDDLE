@@ -3,7 +3,7 @@
     <gnbTextbookSelect :value.sync="grade" :key.sync="textbook" @event.user="textbookChange" :textbook.sync="textBookList"/>
     <view>
       <view class="zan-row" style="padding: 10px 0 0;">
-        <text class="zan-panel-title zan-font-bold zan-c-black">我的练习册</text>
+        <text class="zan-panel-title zan-font-bold zan-c-black">我的习题册</text>
       </view>
       <!--习题册区间-->
       <view class="zan-panel">
@@ -76,7 +76,7 @@ export default class Statistics extends wepy.page {
       })
     }
   }
-  // 获取我的练习册
+  // 获取我的习题册
   _getMyWorkbook (id) {
     return new Promise((resolve, reject) => {
       wepy.request({
@@ -95,7 +95,12 @@ export default class Statistics extends wepy.page {
   }
 
   onLoad() {
-    this.grade = wepy.getStorageSync('User').grade - 7
+    let self = this
+    switch (wepy.getStorageSync('User').grade) {
+      case '7' : { self.grade = 1; break }
+      case '8' : { self.grade = 3; break }
+      case '9' : { self.grade = 5; break }
+    }
     this.textBookList = wepy.getStorageSync('User').textbook
     this.textbook = this.textBookList[Number(this.grade)].id
     this.$apply()
