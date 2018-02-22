@@ -18,6 +18,8 @@
       </view>
     </view>
     <view class="zan-row _47aa3aa">
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary _47aa3aa" bindtap="_send">发送</button>
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary {{emailDisabled ? '' : 'zan-btn--disabled'}} _47aa3aa" disabled="{{!emailDisabled}}" bindtap="_send">
+        发送
+      </button>
     </view>
   </view>

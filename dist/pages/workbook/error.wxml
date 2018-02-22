@@ -14,7 +14,10 @@
     </scroll-view>
     <view class="footer _d0bd9b6">
       <view class="zan-row _d0bd9b6">
-        <button class="zan-col zan-col-16 zan-col-offset-4 zan-btn zan-btn--primary _d0bd9b6" bindtap="_download">下载{{error.length}}道错题</button>
+        <button class="zan-col zan-col-16 zan-col-offset-4 zan-btn zan-btn--primary _d0bd9b6" bindtap="_download">
+          <image mode="aspectFit" style="width:24px;height:24px;top:6px;position:relative;" src="../../common/resources/icon_download.png" class="_d0bd9b6"/>
+          下载{{error.length}}道错题
+        </button>
       </view>
     </view>
   </view>
