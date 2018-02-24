@@ -25,14 +25,14 @@
               <image class="zan-card__img _c0e8fd8" src="{{ item.img.url }}?imageView2/2/w/180/h/270/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
             </view>
             <!--习题册详情-->
-            <view class="zan-card__detail _c0e8fd8" bindtap="_edit" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}">
+            <view class="zan-card__detail _c0e8fd8" bindtap="_edit" data-wpy_edit-a="{{pindex}}" data-wpy_edit-b="{{item.id}}">
               <view class="zan-card__detail-row _c0e8fd8">
                 <view class="zan-card__left-col zan-font-14 _c0e8fd8" style="color:#3FC6C6">{{item.year}}版</view>
               </view>
               <view class="zan-card__detail-row zan-c-gray-darker _c0e8fd8">
                 <view class="zan-card__right-col _c0e8fd8">
                   <button  wx:if="{{ item.status }}" class="zan-btn zan-btn--small zan-btn--plain zan-btn--warn _c0e8fd8">删除</button>
-                  <button  wx:else class="zan-btn zan-btn--small zan-btn--plain zan-btn--primary {{ item.status ? '123':'213' }} _c0e8fd8">添加</button>
+                  <button  wx:else class="zan-btn zan-btn--small zan-btn--plain zan-btn--primary _c0e8fd8">添加</button>
                 </view>
                 <view class="zan-card__left-col zan-font-16 _c0e8fd8" style="margin-bottom: 3px;">{{item.name}}</view>
                 <block class="_c0e8fd8" wx:for="{{item.version}}" wx:for-index="index" wx:for-item="version" wx:key="index">

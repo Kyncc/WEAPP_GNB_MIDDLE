@@ -20,7 +20,7 @@
               <image class="zan-card__img _ed11bfe" src="{{ item.img.url }}?imageView2/2/w/180/h/270/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
             </view>
             <!--习题册详情-->
-            <view class="zan-card__detail _ed11bfe" bindtap="_edit" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}">
+            <view class="zan-card__detail _ed11bfe" bindtap="_edit" data-wpy_edit-a="{{pindex}}" data-wpy_edit-b="{{item.id}}">
               <view class="zan-card__detail-row _ed11bfe">
                 <view class="zan-card__left-col zan-font-14 _ed11bfe" style="color:#3FC6C6">{{item.year}}版</view>
               </view>
