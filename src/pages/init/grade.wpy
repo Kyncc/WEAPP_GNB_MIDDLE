@@ -20,7 +20,7 @@
     <view class="zan-row" style="margin-top: 30px;">
       <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(1, 7)'>七年级</button>
       <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(3, 8)'>八年级</button>
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(5, 9)'>九年级</button>
+      <!-- <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(5, 9)'>九年级</button> -->
     </view>
   </view>
 </template>

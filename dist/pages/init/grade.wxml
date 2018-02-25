@@ -7,6 +7,6 @@
     <view class="zan-row _a251fec" style="margin-top: 30px;">
       <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="1" data-wpy_intoaddworkbook-b="7">七年级</button>
       <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="3" data-wpy_intoaddworkbook-b="8">八年级</button>
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn _a251fec" bindtap="_intoAddWorkbook" data-wpy_intoaddworkbook-a="5" data-wpy_intoaddworkbook-b="9">九年级</button>
+      <!-- <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn" bindtap='_intoAddWorkbook(5, 9)'>九年级</button> -->
     </view>
   </view>

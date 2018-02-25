@@ -11,7 +11,7 @@
   "author": "Hope",
   "license": "MIT",
   "dependencies": {
-    "wepy": "^1.6.0",
+    "wepy": "^1.7.0",
     "wepy-async-function": "^1.4.4"
   },
   "devDependencies": {

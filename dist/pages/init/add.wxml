@@ -8,7 +8,7 @@
     <!--搜索-->
     <view class="zan-panel search _c0e8fd8">
       
-  <view class="zan-cell zan-field {{ $searchField$options.error ? 'zan-field--error' : '' }} {{ $searchField$options.mode === 'wrapped' ? 'zan-field--wrapped' : '' }} _c0e8fd8">
+  <view class="zan-cell zan-field {{ $searchField$options.error ? 'zan-field--error' : '' }} {{ $searchField$options.mode === 'wrapped' ? 'zan-field--wrapped' : '' }}">
     <view  wx:if="{{ $searchField$options.title }}" class="zan-cell__hd zan-field__title">{{ $searchField$options.title }}</view>
     <textarea  wx:if="{{ $searchField$options.type === 'textarea' }}" auto-height name="{{ $searchField$options.name || $searchField$componentId || '' }}" value="{{ $searchField$options.value }}" placeholder="{{ $searchField$options.placeholder }}" class="zan-field__input zan-cell__bd {{ $searchField$options.right ? 'zan-field__input--right' : '' }}" placeholder-class="zan-field__placeholder" bindinput="$searchField$handleZanFieldChange" bindfocus="$searchField$handleZanFieldFocus" bindblur="$searchField$handleZanFieldBlur" data-component-id="{{ $searchField$componentId || '' }}"/>
     <input wx:else disabled="{{ $searchField$options.disabled }}" type="{{ $searchField$options.inputType || 'text' }}" name="{{ $searchField$options.name || $searchField$componentId || '' }}" value="{{ $searchField$options.value }}" placeholder="{{ $searchField$options.placeholder }}" class="zan-field__input zan-cell__bd {{ $searchField$options.right ? 'zan-field__input--right' : '' }}" placeholder-class="zan-field__placeholder" bindinput="$searchField$handleZanFieldChange" bindfocus="$searchField$handleZanFieldFocus" bindblur="$searchField$handleZanFieldBlur" data-component-id="{{ $searchField$componentId || '' }}"/>
@@ -17,26 +17,26 @@
     </view>
     <!--习题册区间-->
     <view class="zan-panel _c0e8fd8" style="margin-top: 0;">
-      <scroll-view scroll-y="true" style="height: 630rpx;background:#fff;" scroll-with-animation="true" enable-back-to-top="true" class="_c0e8fd8">
-        <block class="_c0e8fd8" wx:for="{{ workbookList }}" wx:for-index="pindex" wx:for-item="item" wx:key="pindex">
-          <view class="zan-card _c0e8fd8">
+      <scroll-view scroll-y="true" style="height: 630rpx;background:#fff;" scroll-with-animation="true" enable-back-to-top="true">
+        <block wx:for="{{ workbookList }}" wx:for-index="pindex" wx:for-item="item" wx:key="pindex">
+          <view class="zan-card">
             <!--习题册图片-->
-            <view class="zan-card__thumb _c0e8fd8" bindtap="_preview" data-wpy_preview-a="{{ item.img.url }}">
-              <image class="zan-card__img _c0e8fd8" src="{{ item.img.url }}?imageView2/2/w/180/h/270/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
+            <view class="zan-card__thumb" bindtap="_preview" data-wpy_preview-a="{{ item.img.url }}">
+              <image class="zan-card__img" src="{{ item.img.url }}?imageView2/2/w/180/h/270/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
             </view>
             <!--习题册详情-->
-            <view class="zan-card__detail _c0e8fd8" bindtap="_edit" data-wpy_edit-a="{{pindex}}" data-wpy_edit-b="{{item.id}}">
-              <view class="zan-card__detail-row _c0e8fd8">
-                <view class="zan-card__left-col zan-font-14 _c0e8fd8" style="color:#3FC6C6">{{item.year}}版</view>
+            <view class="zan-card__detail" bindtap="_edit" data-wpy_edit-a="{{pindex}}" data-wpy_edit-b="{{item.id}}">
+              <view class="zan-card__detail-row">
+                <view class="zan-card__left-col zan-font-14" style="color:#3FC6C6">{{item.year}}版</view>
               </view>
-              <view class="zan-card__detail-row zan-c-gray-darker _c0e8fd8">
-                <view class="zan-card__right-col _c0e8fd8">
-                  <button  wx:if="{{ item.status }}" class="zan-btn zan-btn--small zan-btn--plain zan-btn--warn _c0e8fd8">删除</button>
-                  <button  wx:else class="zan-btn zan-btn--small zan-btn--plain zan-btn--primary _c0e8fd8">添加</button>
+              <view class="zan-card__detail-row zan-c-gray-darker">
+                <view class="zan-card__right-col">
+                  <button  wx:if="{{ item.status }}" class="zan-btn zan-btn--small zan-btn--plain zan-btn--warn">删除</button>
+                  <button  wx:else class="zan-btn zan-btn--small zan-btn--plain zan-btn--primary">添加</button>
                 </view>
-                <view class="zan-card__left-col zan-font-16 _c0e8fd8" style="margin-bottom: 3px;">{{item.name}}</view>
-                <block class="_c0e8fd8" wx:for="{{item.version}}" wx:for-index="index" wx:for-item="version" wx:key="index">
-                  <view class="zan-card__left-col zan-c-gray zan-font-12 _c0e8fd8" style="margin-bottom: 6rpx;">{{version}}</view>
+                <view class="zan-card__left-col zan-font-16" style="margin-bottom: 3px;">{{item.name}}</view>
+                <block wx:for="{{item.version}}" wx:for-index="index" wx:for-item="version" wx:key="index">
+                  <view class="zan-card__left-col zan-c-gray zan-font-12" style="margin-bottom: 6rpx;">{{version}}</view>
                 </block>
               </view>
             </view>
@@ -47,9 +47,9 @@
     <!--习题册区间End-->
     <!--进入想要习题册-->
     <view class="zan-row zan-center _c0e8fd8" style="padding:30rpx 0;">
-      <navigator open-type="navigate" url="/pages/workbook/want" class="_c0e8fd8">
-        <view class="zan-col zan-col-24 zan-font-14 zan-c-gray _c0e8fd8">没有找到想要的习题册？
-          <text style="color:#FF7043;text-decoration:underline;" class="_c0e8fd8">告诉我们</text>
+      <navigator open-type="navigate" url="/pages/workbook/want">
+        <view class="zan-col zan-col-24 zan-font-14 zan-c-gray">没有找到想要的习题册？
+          <text style="color:#FF7043;text-decoration:underline;">告诉我们</text>
         </view>
       </navigator>
     </view>

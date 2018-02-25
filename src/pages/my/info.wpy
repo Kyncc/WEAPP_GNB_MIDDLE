@@ -27,7 +27,7 @@
   import wepy from 'wepy'
   import zanField from '@/components/zan-field'
 
-  const gradeList = ['七年级', '八年级', '九年级']
+  const gradeList = ['七年级', '八年级']
 
   export default class MyInfo extends wepy.page {
     config = {

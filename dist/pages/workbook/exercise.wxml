@@ -1,7 +1,7 @@
 
-  <view class="container _a901702">
+  <view class="container workBookExercise">
     
-  <view class="zan-noticebar _a901702">
+  <view class="zan-noticebar">
     <view id="{{ $zanNoticebar1$componentId }}__content-wrap" style="height: 20px; overflow: hidden; position: relative;">
       <view animation="{{ $zanNoticebar1$animationData }}" id="{{ $zanNoticebar1$componentId }}__content" style="position: absolute; white-space: nowrap;">
         {{ $zanNoticebar1$text }}
@@ -9,19 +9,19 @@
     </view>
   </view>
 
-    <view class="zan-panel _a901702" style="margin: 0 0 70px 0;">
-      <block class="_a901702" wx:for="{{ exercise.nodes }}" wx:for-index="pindex" wx:for-item="nodes" wx:key="pindex">
-        <view class="zan-panel-title zan-font-bold zan-c-black _a901702">{{ nodes.name }}</view>
-        <view class="zan-cell flex _a901702" style="padding:12px 7px">
-          <block class="_a901702" wx:for="{{ nodes.questions }}" wx:for-index="index" wx:for-item="questions" wx:key="index">
-            <button class="zan-btn btn_exercise {{questions.answer ? '' : 'is_checked'}} _a901702" bindtap="_change" data-wpy_change-a="{{pindex}}" data-wpy_change-b="{{index}}">{{ questions.name }}</button>
+    <view class="zan-panel" style="margin: 0 0 70px 0;">
+      <block wx:for="{{ exercise.nodes }}" wx:for-index="pindex" wx:for-item="nodes" wx:key="pindex">
+        <view class="zan-panel-title zan-font-bold zan-c-black">{{ nodes.name }}</view>
+        <view class="zan-cell flex" style="padding:12px 7px">
+          <block wx:for="{{ nodes.questions }}" wx:for-index="index" wx:for-item="questions" wx:key="index">
+            <button class="zan-btn btn_exercise {{questions.answer ? '' : 'is_checked'}}" bindtap="_change" data-wpy_change-a="{{pindex}}" data-wpy_change-b="{{index}}">{{ questions.name }}</button>
           </block>
         </view>
       </block>
     </view>
-    <view class="zan-row footer _a901702">
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary _a901702" bindtap="_upload">
-        <image mode="aspectFit" style="width:24px;height:24px;top:6px;position:relative;" src="../../common/resources/icon_gou.png" class="_a901702"/>
+    <view class="zan-row footer">
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary" bindtap="_upload">
+        <image mode="aspectFit" style="width:24px;height:24px;top:6px;position:relative;" src="../../common/resources/icon_gou.png"/>
         记完了
       </button>
     </view>
