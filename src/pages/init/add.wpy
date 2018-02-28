@@ -1,16 +1,18 @@
-<style lang="less" scoped>
-.search{
-  .zan-cell{
-    padding: 5px 15px;
+<style lang="less">
+.workbookAdd{
+  .search{
+      .zan-cell{
+        padding: 5px 15px;
+    }
   }
-}
-.zan-btn {
-  border-radius:0;
+  .zan-btn {
+    border-radius:0;
+  }
 }
 </style>
 
 <template>
-  <view class="container">
+  <view class="container workbookAdd">
     <!--标题-->
     <view class="zan-row zan-center" style="margin: 40rpx 0;">
       <text class="zan-col zan-col-24 zan-font-22 zan-c-black">选择你正在使用的习题册</text>

@@ -3,7 +3,7 @@
     <view class="zan-row zan-center" style="padding-top:60rpx;position: relative">
       <navigator url="/pages/my/info" hover-class="none">
         <image class="userinfo-avatar" src="{{userInfo.headImg}}" mode="scaleToFill"/>
-        <image  wx:if="{{ userInfo.vip != 0 }}" class="userinfo-vip" src="../../common/resources/VIP.png" mode="scaleToFill"/>
+        <image  wx:if="{{ userInfo.vip != 0 }}" class="userinfo-vip" src="../../common/resources/VIP1.png" mode="scaleToFill"/>
         <text class="zan-col zan-col-24 zan-font-22">{{userInfo.name}}</text>
         <text class="zan-arrow"/>
       </navigator>

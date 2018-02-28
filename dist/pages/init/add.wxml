@@ -1,12 +1,12 @@
 
-  <view class="container _c0e8fd8">
+  <view class="container workbookAdd">
     <!--标题-->
-    <view class="zan-row zan-center _c0e8fd8" style="margin: 40rpx 0;">
-      <text class="zan-col zan-col-24 zan-font-22 zan-c-black _c0e8fd8">选择你正在使用的习题册</text>
-      <text class="zan-col zan-col-24 zan-font-14 zan-c-gray-darker _c0e8fd8" style="margin-top: 30rpx;">数学 新人教版 {{gradeName}}</text>
+    <view class="zan-row zan-center" style="margin: 40rpx 0;">
+      <text class="zan-col zan-col-24 zan-font-22 zan-c-black">选择你正在使用的习题册</text>
+      <text class="zan-col zan-col-24 zan-font-14 zan-c-gray-darker" style="margin-top: 30rpx;">数学 新人教版 {{gradeName}}</text>
     </view>
     <!--搜索-->
-    <view class="zan-panel search _c0e8fd8">
+    <view class="zan-panel search">
       
   <view class="zan-cell zan-field {{ $searchField$options.error ? 'zan-field--error' : '' }} {{ $searchField$options.mode === 'wrapped' ? 'zan-field--wrapped' : '' }}">
     <view  wx:if="{{ $searchField$options.title }}" class="zan-cell__hd zan-field__title">{{ $searchField$options.title }}</view>
@@ -16,7 +16,7 @@
 
     </view>
     <!--习题册区间-->
-    <view class="zan-panel _c0e8fd8" style="margin-top: 0;">
+    <view class="zan-panel" style="margin-top: 0;">
       <scroll-view scroll-y="true" style="height: 630rpx;background:#fff;" scroll-with-animation="true" enable-back-to-top="true">
         <block wx:for="{{ workbookList }}" wx:for-index="pindex" wx:for-item="item" wx:key="pindex">
           <view class="zan-card">
@@ -46,7 +46,7 @@
     </view>
     <!--习题册区间End-->
     <!--进入想要习题册-->
-    <view class="zan-row zan-center _c0e8fd8" style="padding:30rpx 0;">
+    <view class="zan-row zan-center" style="padding:30rpx 0;">
       <navigator open-type="navigate" url="/pages/workbook/want">
         <view class="zan-col zan-col-24 zan-font-14 zan-c-gray">没有找到想要的习题册？
           <text style="color:#FF7043;text-decoration:underline;">告诉我们</text>
@@ -54,7 +54,7 @@
       </navigator>
     </view>
     <!--进入我的-->
-    <view class="zan-row _c0e8fd8">
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary _c0e8fd8" bindtap="_begin">选好了，开始记错</button>
+    <view class="zan-row">
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary" bindtap="_begin">选好了，开始记错</button>
     </view>
   </view>
