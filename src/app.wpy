@@ -86,7 +86,7 @@ export default class extends wepy.app {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#FBFBFB',
-      navigationBarTitleText: '错题归纳本小学数学',
+      navigationBarTitleText: '错题归纳本初中数学',
       navigationBarTextStyle: 'black'
     },
     networkTimeout: {
