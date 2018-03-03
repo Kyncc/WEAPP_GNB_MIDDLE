@@ -96,14 +96,18 @@ export default class Statistics extends wepy.page {
 
   onLoad() {
     let self = this
-    switch (wepy.getStorageSync('User').grade) {
-      case '7' : { self.grade = 1; break }
-      case '8' : { self.grade = 3; break }
-      case '9' : { self.grade = 5; break }
-    }
     this.textBookList = wepy.getStorageSync('User').textbook
-    this.textbook = this.textBookList[Number(this.grade)].id
-    this.$apply()
+    // 新用户练习册为空的兼容
+    if (this.textBookList) {
+      switch (wepy.getStorageSync('User').grade) {
+        case '7' : { self.grade = 1; break }
+        case '8' : { self.grade = 3; break }
+        case '9' : { self.grade = 5; break }
+      }
+      this.textBookList = wepy.getStorageSync('User').textbook
+      this.textbook = this.textBookList[Number(this.grade)].id
+      this.$apply()
+    }
   }
 
   async onShow() {
