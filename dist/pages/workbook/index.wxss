@@ -1,0 +1,1 @@
+.add_button{position:fixed;background:#4cc0be;color:#fff;font-size:70rpx;height:120rpx;line-height:120rpx;width:120rpx;border-radius:50%;bottom:5%;right:5%;text-align:center}
