@@ -84,12 +84,12 @@
 
     onLoad() {
       let self = this
-      switch (wepy.getStorageSync('User').grade) {
+      switch (wepy.getStorageSync('gnb_middle_User').grade) {
         case '7' : { self.grade = 1; break }
         case '8' : { self.grade = 3; break }
         case '9' : { self.grade = 5; break }
       }
-      this.textBookList = wepy.getStorageSync('User').textbook
+      this.textBookList = wepy.getStorageSync('gnb_middle_User').textbook
       this.textbook = this.textBookList[Number(this.grade)].id
       this.$apply()
     }

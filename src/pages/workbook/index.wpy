@@ -1,11 +1,21 @@
-<style lang="less">
+<style lang="less" scoped>
+.workbookIndex{
+  .header{
+    height:40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+}
 .add_button {
   position: fixed;
   background:#4cc0be;
   color:#fff;
   font-size: 70rpx;
   height: 120rpx;
-  line-height: 120rpx;
+  line-height: 110rpx;
   width: 120rpx;
   border-radius: 50%;
   bottom: 5%;
@@ -14,37 +24,32 @@
 }
 </style>
 <template>
-  <view class="container">
-    <gnbTextbookSelect :value.sync="grade" :key.sync="textbook" @event.user="textbookChange" :textbook.sync="textBookList"/>
-    <view>
-      <view class="zan-row" style="padding: 10px 0 0;">
-        <text class="zan-panel-title zan-font-bold zan-c-black">我的习题册</text>
-      </view>
-      <!--习题册区间-->
-      <view class="zan-panel">
-        <scroll-view scroll-y="true" style="height: 780rpx;background:#fff;" scroll-with-animation="true" enable-back-to-top="true">
-          <repeat for="{{ workbookList }}" key="pindex" index="pindex" item="item">
-            <view class="zan-card" bindtap="_intoChapter({{item}})">
-              <!--习题册图片-->
-              <view class="zan-card__thumb">
-                <image class="zan-card__img" src="{{ item.img.url }}?imageView2/2/w/180/h/270/format/jpg/q/75" mode="aspectFit" lazy-load='true'/>
+  <view class="container workbookIndex">
+    <gnbTextbookSelect class="header" :value.sync="grade" :key.sync="textbook" @event.user="textbookChange" :textbook.sync="textBookList"/>
+    <!--习题册区间-->
+    <view class="zan-panel" style='margin-top: 38px;'>
+      <scroll>
+        <repeat for="{{ workbookList }}" key="pindex" index="pindex" item="item">
+          <view class="zan-card" bindtap="_intoChapter({{item}})">
+            <!--习题册图片-->
+            <view class="zan-card__thumb">
+              <image class="zan-card__img" src="{{ item.img.url }}?imageView2/2/w/180/h/270/format/jpg/q/75" mode="aspectFit" lazy-load='true'/>
+            </view>
+            <!--习题册详情-->
+            <view class="zan-card__detail">
+              <view class="zan-card__detail-row">
+                <view class="zan-card__left-col zan-font-14" style="color:#3FC6C6">{{item.year}}版</view>
               </view>
-              <!--习题册详情-->
-              <view class="zan-card__detail">
-                <view class="zan-card__detail-row">
-                  <view class="zan-card__left-col zan-font-14" style="color:#3FC6C6">{{item.year}}版</view>
-                </view>
-                <view class="zan-card__detail-row zan-c-gray-darker">
-                  <view class="zan-card__left-col zan-font-16" style="margin-bottom: 3px;">{{item.name}}</view>
-                  <repeat for="{{item.version}}" key="index" index="index" item="version">
-                    <view class="zan-card__left-col zan-c-gray zan-font-12" style="margin-bottom: 6rpx;">{{version}}</view>
-                  </repeat>
-                </view>
+              <view class="zan-card__detail-row zan-c-gray-darker">
+                <view class="zan-card__left-col zan-font-16" style="margin-bottom: 3px;">{{item.name}}</view>
+                <repeat for="{{item.version}}" key="index" index="index" item="version">
+                  <view class="zan-card__left-col zan-c-gray zan-font-12" style="margin-bottom: 6rpx;">{{version}}</view>
+                </repeat>
               </view>
             </view>
-          </repeat>
-        </scroll-view>
-      </view>
+          </view>
+        </repeat>
+      </scroll>
     </view>
     <button class="add_button" bindtap='_initAdd'>+</button>
     <!-- <view class="zan-font-16 zan-center" style='padding:20rpx 0;' bindtap="_initAdd()">
@@ -112,15 +117,15 @@ export default class Statistics extends wepy.page {
 
   onLoad() {
     let self = this
-    this.textBookList = wepy.getStorageSync('User').textbook
+    this.textBookList = wepy.getStorageSync('gnb_middle_User').textbook
     // 新用户练习册为空的兼容
     if (this.textBookList) {
-      switch (wepy.getStorageSync('User').grade) {
+      switch (wepy.getStorageSync('gnb_middle_User').grade) {
         case '7' : { self.grade = 1; break }
         case '8' : { self.grade = 3; break }
         case '9' : { self.grade = 5; break }
       }
-      this.textBookList = wepy.getStorageSync('User').textbook
+      this.textBookList = wepy.getStorageSync('gnb_middle_User').textbook
       this.textbook = this.textBookList[Number(this.grade)].id
       this.$apply()
     }
