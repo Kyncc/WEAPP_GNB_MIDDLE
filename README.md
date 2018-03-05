@@ -40,7 +40,7 @@ wepy build --watch
   ├── common      # 公共资源
   ├── components  # 组件
   ├── pages       # 页面
-    ├── init          # 配置信息
+    ├── init          # 初始化配置
     ├── workbook      # 记错题
     ├── statistics    # 错题本
     ├── my            # 我的
