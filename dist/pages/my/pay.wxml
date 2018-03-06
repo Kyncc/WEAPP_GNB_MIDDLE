@@ -14,7 +14,7 @@
         <view class="zan-cell__bd zan-font-16"><text class="zan-font-30">￥149 </text>/半年</view>
       </view>
       <view class="zan-cell" bindtap="_buy" data-wpy_buy-a="6">
-        <view class="zan-cell__bd zan-font-16"><text class="zan-font-30">￥199 </text>/年</view>
+        <view class="zan-cell__bd zan-font-16"><text class="zan-font-30">￥269 </text>/年</view>
       </view>
     </view>
   </view>
