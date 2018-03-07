@@ -58,6 +58,7 @@ export default class extends wepy.app {
       'pages/workbook/share',
       'pages/workbook/chapter',
       'pages/workbook/exercise',
+      'pages/paper/index',
       'pages/statistics/index',
       'pages/statistics/error',
       'pages/statistics/share',
@@ -78,6 +79,11 @@ export default class extends wepy.app {
         iconPath: 'common/resources/workbook.png',
         selectedIconPath: 'common/resources/workbook_select.png',
         text: '错题本'
+      }, {
+        pagePath: 'pages/paper/index',
+        iconPath: 'common/resources/workbook.png',
+        selectedIconPath: 'common/resources/workbook_select.png',
+        text: '资源'
       }, {
         pagePath: 'pages/my/index',
         iconPath: 'common/resources/user.png',

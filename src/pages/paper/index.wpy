@@ -1,0 +1,78 @@
+<template>
+  <view class="container">
+    
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import zanLoadMore from '@/components/zan-loadmore'
+  
+  export default class PaperIndex extends wepy.page {
+    config = {
+      navigationBarTitleText: '试卷下载'
+    }
+
+    data = {
+      list: [],
+      offset: '',
+      options: {
+        tag: 'hot',
+        type: '0',
+        grade: '8',
+        year: '0'
+      },
+      loading: true,
+      nomore: false
+    }
+
+    components = {
+      zanLoadmore1: zanLoadMore
+    }
+
+    methods = {
+      /** 加载更多 */
+      _loadMore () {
+        // 无更多数据或者正在加载则返回
+        if (this.loading || this.nomore) return
+        this.loading = true
+        this._getErrorList(this.offset, this.options).then((res) => {
+          this.loading = false
+          this.list = this.list.concat(res.list)
+          this.offset = res.offset
+          this.$apply()
+        }).catch(() => {
+          this.nomore = true
+          this.loading = false
+          this.$apply()
+        })
+      }
+    }
+
+    _getPaperList (offset, options) {
+      return new Promise((resolve, reject) => {
+        wepy.request({
+          url: 'https://mid.guinaben.com/resource',
+          data: {
+            offset: offset,
+            ...options
+          },
+          success (res) { resolve(res) },
+          fail (err) { reject(err) }
+        })
+      })
+    }
+
+    async onLoad() {
+      // this.statistics = await this._getStatistics(this.textbook)
+      this.$apply()
+    }
+
+    onShareAppMessage (res) {
+      return {
+        title: '各位家长，用这个记错题，速度快，用处大',
+        path: '/pages/my/index'
+      }
+    }
+  }
+</script>
