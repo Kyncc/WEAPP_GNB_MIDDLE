@@ -59,6 +59,7 @@ export default class extends wepy.app {
       'pages/workbook/chapter',
       'pages/workbook/exercise',
       'pages/paper/index',
+      'pages/paper/filter',
       'pages/statistics/index',
       'pages/statistics/error',
       'pages/statistics/share',
