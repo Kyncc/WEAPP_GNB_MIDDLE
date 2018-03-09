@@ -105,7 +105,13 @@ export default class extends wepy.app {
   }
 
   globalData = {
-    system: {}
+    system: {},
+    paperFilter: {
+      tag: 'hot',
+      type: '0',
+      grade: '8',
+      year: '0'
+    }
   }
 
   constructor () {

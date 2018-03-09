@@ -29,7 +29,8 @@
       <repeat for="{{list}}" key="index" index="index" item="item">
         <view class="zan-panel" style="margin-top: 5px;" bindtap='_download({{item}})'>
           <view class="zan-cell" style="padding: 7px 15px">
-            {{item.isGood ? "精":""}}{{item.name}}
+            <text style="color: #fff;margin-right: 5px;padding:3px;background: #f6ac0b;border-radius: 5px;">{{item.isGood ? " 精 ":""}}</text>
+            <text>{{item.name}}</text>
           </view>
           <view class="zan-cell" style="padding: 7px 15px">
             <view class="zan-cell__bd zan-row zan-c-gray zan-font-12">
@@ -82,7 +83,9 @@
       },
       /** 选择标签 */
       _select (value) {
+        this.$parent.globalData.paperFilter.tag = value
         this.options.tag = value
+        this._getList()
       },
       /** 加载更多 */
       _loadMore () {
@@ -116,8 +119,9 @@
       })
     }
 
-    async onLoad() {
-      this.scrollHeight = this.$parent.globalData.system.windowHeight - 30
+    async _getList () {
+      this.list = []
+      this.offset = ''
       try {
         let result = await this._getPaperList(this.offset, this.options)
         this.loading = false
@@ -134,8 +138,15 @@
       }
     }
 
-    onShow(options) {
-      console.log(options)
+    onLoad() {
+      this.scrollHeight = this.$parent.globalData.system.windowHeight - 30
+    }
+
+    onShow() {
+      this.options.type = this.$parent.globalData.paperFilter.type
+      this.options.grade = this.$parent.globalData.paperFilter.grade
+      this.options.year = this.$parent.globalData.paperFilter.year
+      this._getList()
     }
 
     onShareAppMessage (res) {
