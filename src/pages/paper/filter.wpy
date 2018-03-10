@@ -22,7 +22,7 @@
         <view class="zan-col zan-col-offset-1 zan-col-3 zan-font-14">年份</view>
         <button class="zan-col-offset-1 zan-col-5 zan-btn zan-btn--small {{year === '0' ? 'zan-btn--primary':''}}" bindtap='_select(year, 0)'>不限</button>
         <button class="zan-col-offset-1 zan-col-5 zan-btn zan-btn--small {{year === '2018' ? 'zan-btn--primary':''}}" bindtap='_select(year, 2018)'>2018</button>
-        <button class="zan-col-offset-1 zan-col-5 zan-btn zan-btn--small {{year === '2017' ? 'zan-btn--primary':''}}" bindtap='_select(year, 2018)'>2017</button>
+        <button class="zan-col-offset-1 zan-col-5 zan-btn zan-btn--small {{year === '2017' ? 'zan-btn--primary':''}}" bindtap='_select(year, 2017)'>2017</button>
       </view>
       <view class="zan-row">
         <button class="zan-col-offset-5 zan-col-5 zan-btn zan-btn--small {{year === '2016' ? 'zan-btn--primary':''}}" bindtap='_select(year, 2016)'>2016</button>

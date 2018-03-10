@@ -111,7 +111,9 @@
           url: 'https://mid.guinaben.com/resource',
           data: {
             offset: offset,
-            ...options
+            options: {
+              ...options
+            }
           },
           success (res) { resolve(res) },
           fail (err) { reject(err) }

@@ -125,7 +125,7 @@
         url = 'https://mid.guinaben.com/workbook/chapter/errorDownload'
         options = {chapterId: id}
       } else {
-        url = 'https://primary.guinaben.com/resource/download'
+        url = 'https://mid.guinaben.com/resource/download'
         options = {id: id}
       }
       wepy.showLoading({title: '请稍候'})
