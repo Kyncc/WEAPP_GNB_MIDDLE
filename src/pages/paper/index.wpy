@@ -10,6 +10,9 @@
     background: #fff;
     z-index: 2;
   }
+  .zan-btn {
+    border-radius:5%;
+  }
 }
 </style>
 

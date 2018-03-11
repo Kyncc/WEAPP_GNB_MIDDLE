@@ -7,6 +7,9 @@
   .zan-row{
     padding: 5px 0;
   }
+  .zan-btn {
+    border-radius:5%;
+  }
 }
 </style>
 
