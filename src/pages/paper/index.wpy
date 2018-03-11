@@ -17,19 +17,19 @@
   <view class="container paperIndex">
     <view class="zan-row zan-cell header">
       <view class="zan-col zan-col-12">
-        <button class="zan-col-offset-1 zan-btn zan-btn--small {{options.tag === 'new' ? 'zan-btn--primary':''}}" bindtap='_select(new)'>最新</button>
-        <button class="zan-col-offset-1 zan-btn zan-btn--small {{options.tag === 'hot' ? 'zan-btn--primary':''}}" bindtap='_select(hot)'>最热</button>
+        <button class="zan-col-offset-1 zan-btn zan-btn--small {{options.tag === 'new' ? 'zan-btn--primary':''}}" bindtap='_select(new)'>时间</button>
+        <button class="zan-col-offset-1 zan-btn zan-btn--small {{options.tag === 'hot' ? 'zan-btn--primary':''}}" bindtap='_select(hot)'>精品</button>
       </view>
       <navigator open-type="navigateTo" url="/pages/paper/filter" hover-class="none"
         class="zan-col zan-col-offset-5 zan-col-6 zan-right" style="color: #3fc6c6">
         筛选
       </navigator>
     </view>
-    <scroll-view scroll-y style="height: {{scrollHeight}}px;padding-bottom: 40px;margin-top: 45px;" lower-threshold="200" bindscrolltolower="_loadMore">
+    <scroll-view scroll-y style="height: {{scrollHeight}}px;margin-top: 45px;" lower-threshold="200" bindscrolltolower="_loadMore">
       <repeat for="{{list}}" key="index" index="index" item="item">
         <view class="zan-panel" style="margin-top: 5px;" bindtap='_download({{item}})'>
           <view class="zan-cell" style="padding: 7px 15px">
-            <text style="color: #fff;margin-right: 5px;padding:3px;background: #f6ac0b;border-radius: 5px;">{{item.isGood ? " 精 ":""}}</text>
+            <text wx:if="{{item.isGood}}" style="color: #fff;margin-right: 5px;padding:3px;background: #f6ac0b;border-radius: 5px;">精</text>
             <text>{{item.name}}</text>
           </view>
           <view class="zan-cell" style="padding: 7px 15px">
@@ -57,6 +57,7 @@
     data = {
       list: [],
       offset: '',
+      scrollHeight: '',
       options: {
         tag: 'hot',
         type: '0',
@@ -92,7 +93,7 @@
         // 无更多数据或者正在加载则返回
         if (this.loading || this.nomore) return
         this.loading = true
-        this._getErrorList(this.offset, this.options).then((res) => {
+        this._getPaperList(this.offset, this.options).then((res) => {
           this.loading = false
           this.list = this.list.concat(res.list)
           this.offset = res.offset

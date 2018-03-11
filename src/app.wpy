@@ -82,8 +82,8 @@ export default class extends wepy.app {
         text: '错题本'
       }, {
         pagePath: 'pages/paper/index',
-        iconPath: 'common/resources/workbook.png',
-        selectedIconPath: 'common/resources/workbook_select.png',
+        iconPath: 'common/resources/paper.png',
+        selectedIconPath: 'common/resources/paper_select.png',
         text: '资源'
       }, {
         pagePath: 'pages/my/index',
