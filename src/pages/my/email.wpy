@@ -121,7 +121,7 @@
       if (type === 'statistics') {
         url = 'https://mid.guinaben.com/textbook/statistics/download'
         options = {chapterId: id}
-      } else if (type === 'chapter') {
+      } else if (type === 'workbook') {
         url = 'https://mid.guinaben.com/workbook/chapter/errorDownload'
         options = {chapterId: id}
       } else {
