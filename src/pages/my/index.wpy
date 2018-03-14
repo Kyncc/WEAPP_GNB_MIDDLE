@@ -173,7 +173,7 @@
       })
     }
 
-    async onLoad() {
+    async onLoad(options) {
       try {
         /**
          * 1 获取是否存有openId 如果没有代表为登录过
@@ -187,7 +187,14 @@
         }
         await this._getUserInfo()
         wepy.hideLoading()
-        wepy.switchTab({ url: `/pages/workbook/index` })
+        // 对新建用户的进入练习册处理
+        if (options.from === 'init') {
+          wepy.navigateTo({
+            url: `/pages/workbook/chapter?name=${options.name}&id=${options.id}`
+          })
+        } else {
+          wepy.switchTab({ url: `/pages/workbook/index` })
+        }
         this.$apply()
       } catch (err) {
         wepy.hideLoading()
