@@ -88,13 +88,20 @@
       }
     }
 
-    onLoad() {
+    onShow() {
       let self = this
       wepy.getUserInfo({
         success (res) {
+          console.log(res)
           self.encryptedData = res.encryptedData
           self.iv = res.iv
           self.$apply()
+        },
+        fail () {
+          // 失败了进入二次授权页面
+          wepy.navigateTo({
+            url: `/pages/init/twice`
+          })
         }
       })
     }
