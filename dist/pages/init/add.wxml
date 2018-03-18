@@ -35,15 +35,15 @@
                 <!--取消-->
                 <view class="zan-card__right-col"  wx:if="{{ item.status }}">
                   <view>
-                    <image src="../../common/resources/workbook_cancel.png" bindtap="_edit" mode="aspectFit" style="width: 75px;height:30px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}"/>
+                    <image src="../../common/resources/workbook_cancel.png" bindtap="_edit" mode="aspectFit" style="width: 70px;height:26px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}"/>
                   </view>
-                  <view style="margin-top:12rpx">
-                    <image src="../../common/resources/workbook_ksjc.png" bindtap="_intoChapter" mode="aspectFit" style="width: 75px;height:30px;" data-wpy_intochapter-a="{{item}}"/>
+                  <view style="margin-top:14rpx">
+                    <image src="../../common/resources/workbook_ksjc.png" bindtap="_intoChapter" mode="aspectFit" style="width: 70px;height:26px;" data-wpy_intochapter-a="{{item}}"/>
                   </view>
                 </view>
                 <!--添加-->
                 <view class="zan-card__right-col"  wx:else>
-                  <image src="../../common/resources/workbook_add.png" bindtap="_edit" mode="aspectFit" style="width: 75px;height:30px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}"/>
+                  <image src="../../common/resources/workbook_add.png" bindtap="_edit" mode="aspectFit" style="width: 70px;height:26px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}"/>
                 </view>
                 <view class="zan-card__left-col zan-font-16" style="margin-bottom: 3px;">{{item.name}}</view>
                 <block wx:for="{{item.version}}" wx:for-index="index" wx:for-item="version" wx:key="index">

@@ -88,10 +88,11 @@
       }
     }
 
-    onLoad() {
+    onShow() {
       let self = this
       wepy.getUserInfo({
         success (res) {
+          console.log(res)
           self.encryptedData = res.encryptedData
           self.iv = res.iv
           self.$apply()
