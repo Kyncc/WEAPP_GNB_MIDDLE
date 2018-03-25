@@ -15,7 +15,7 @@
           <repeat for="{{ item.b }}" key="index" index="index" item="itemB">
             <view class="zan-font-16 zan-cell {{ itemB.isUsed ? 'zan-c-black' : 'zan-c-gray-dark' }}" bindtap="_intoExercise({{itemB}})">
               <view class="zan-cell__bd">　{{itemB.name}}</view>
-              <view wx:if="itemB.isUsed" class="zan-cell__ft">{{item.scale}}</view>
+              <view wx:if="{{ itemB.isUsed }}" class="zan-cell__ft">{{itemB.scale}}</view>
             </view>
           </repeat>
         </view>

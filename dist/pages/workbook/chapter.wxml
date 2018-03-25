@@ -15,7 +15,7 @@
           <block wx:for="{{ item.b }}" wx:for-index="index" wx:for-item="itemB" wx:key="index">
             <view class="zan-font-16 zan-cell {{ itemB.isUsed ? 'zan-c-black' : 'zan-c-gray-dark' }}" bindtap="_intoExercise" data-wpy_intoexercise-a="{{itemB}}">
               <view class="zan-cell__bd">　{{itemB.name}}</view>
-              <view wx:if="itemB.isUsed" class="zan-cell__ft">{{item.scale}}</view>
+              <view wx:if="{{ itemB.isUsed }}" class="zan-cell__ft">{{itemB.scale}}</view>
             </view>
           </block>
         </view>
