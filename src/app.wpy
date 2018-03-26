@@ -19,6 +19,9 @@
 .zan-panel-title{
   font-size: 16px;
 }
+.zan-font--primary{
+  color: #3fc6c6;
+}
 .zan-btn--primary{
   background-color: #3fc6c6;
   &::after {
@@ -48,9 +51,9 @@ export default class extends wepy.app {
       'pages/init/add',
       'pages/init/grade',
       'pages/init/twice',
+      'pages/my/vip',
       'pages/my/info',
       'pages/my/pay',
-      'pages/my/vip',
       'pages/my/email',
       'pages/workbook/add',
       'pages/workbook/index',
@@ -147,7 +150,6 @@ export default class extends wepy.app {
               title: res.data.msg,
               icon: 'none'
             })
-            return Promise.reject(new Error('错误的code'))
           }
         } else if (statusCode === '403') {
           // openid为空
