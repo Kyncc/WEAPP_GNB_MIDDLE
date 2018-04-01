@@ -23,7 +23,7 @@
   color: #3fc6c6;
 }
 .zan-font--orange{
-  color: #FDCA3A;
+  color: #f85;
 }
 .zan-btn--primary{
   background-color: #3fc6c6;

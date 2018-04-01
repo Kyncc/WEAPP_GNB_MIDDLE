@@ -1,2 +1,2 @@
 @import "./../../components/zan-loadmore.wxss";
-.statisticsError .footer{position:fixed;bottom:0;left:0;width:100%;padding:10px 0;background:#F9F9F9}.statisticsError .zan-btn{border-radius:0}
+.statisticsError .zan-btn{border-radius:0}.statisticsError .footer{position:fixed;bottom:0;left:0;width:100%;padding:10px 0;background:#F9F9F9}.statisticsError .footer .zan-btn{border-radius:5px}

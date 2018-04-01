@@ -5,8 +5,11 @@
     margin-top: 0;
   }
   .zan-row{padding: 5px 0;}
-  .zan-btn{border-radius:5%;}
+  .zan-btn{border-radius:0;}
   .footer{margin-top: 10px;}
+  .footer{
+    .zan-btn{border-radius:5px;}
+  }
 }
 </style>
 

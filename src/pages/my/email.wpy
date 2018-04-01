@@ -5,6 +5,7 @@
     border-color:black;
     margin-top:-5px;
   }
+  .zan-btn{border-radius:0;}
   .zan-field {
     width:65%;
   }
@@ -27,7 +28,7 @@
     <view class="zan-row">
       <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary {{emailDisabled ? '' : 'zan-btn--disabled'}}"
         disabled="{{!emailDisabled}}"
-        bindtap='_send'>
+        bindtap='_send' style="border-radius: 5px;">
         发送
       </button>
     </view>
@@ -120,12 +121,14 @@
       let options = {}
       if (type === 'statistics') {
         url = 'https://mid.guinaben.com/textbook/statistics/download'
-        options = {chapterId: id}
-      } else if (type === 'workbook') {
-        url = 'https://mid.guinaben.com/workbook/chapter/errorDownload'
         options = {
           chapterId: id,
           type: this.$parent.globalData.statisticsSelect.toString()
+        }
+      } else if (type === 'workbook') {
+        url = 'https://mid.guinaben.com/workbook/chapter/errorDownload'
+        options = {
+          chapterId: id
         }
       } else {
         url = 'https://mid.guinaben.com/resource/download'
