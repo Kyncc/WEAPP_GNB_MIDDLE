@@ -123,7 +123,10 @@
         options = {chapterId: id}
       } else if (type === 'workbook') {
         url = 'https://mid.guinaben.com/workbook/chapter/errorDownload'
-        options = {chapterId: id}
+        options = {
+          chapterId: id,
+          type: this.$parent.globalData.statisticsSelect.toString()
+        }
       } else {
         url = 'https://mid.guinaben.com/resource/download'
         options = {id: id}

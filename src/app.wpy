@@ -22,6 +22,9 @@
 .zan-font--primary{
   color: #3fc6c6;
 }
+.zan-font--orange{
+  color: #FDCA3A;
+}
 .zan-btn--primary{
   background-color: #3fc6c6;
   &::after {
@@ -67,6 +70,7 @@ export default class extends wepy.app {
       'pages/paper/filter',
       'pages/statistics/index',
       'pages/statistics/error',
+      'pages/statistics/select',
       'pages/statistics/share',
       'pages/statistics/correct'
     ],
@@ -116,7 +120,8 @@ export default class extends wepy.app {
       type: '0',
       grade: '8',
       year: '0'
-    }
+    },
+    statisticsSelect: ['1']
   }
 
   constructor () {
