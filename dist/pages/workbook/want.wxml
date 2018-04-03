@@ -1,6 +1,6 @@
 
   <view class="container">
-    <view class="zan-noticebar">请按示例上传习题册封面和版印次，我们将尽快上架该习题册，请注意查看消息通知~</view>
+    <view class="zan-noticebar">请按示例上传练习册封面和版印次，我们将尽快上架该练习册，请注意查看消息通知~</view>
     <view class="zan-panel" style="padding:15px;margin-top:0;">
       <!-- 封面 -->
       <view class="zan-row" style="padding:10px 0;">

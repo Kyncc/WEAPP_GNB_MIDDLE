@@ -1,15 +1,26 @@
 
-  <view class="container _2cedc4e">
+  <view class="container statisticsError">
     <scroll-view scroll-y style="height: {{scrollHeight}}px;padding-bottom: 40px;" lower-threshold="200" bindscrolltolower="_loadMore">
       <block wx:for="{{error}}" wx:for-index="index" wx:for-item="item" wx:key="index">
         <view class="zan-panel">
           <view class="zan-cell" style="padding: 5px 0" bindtap="_preview" data-wpy_preview-a="{{item.errorImg.url}}">
             <image mode="aspectFit" style="width:100%;height:{{ item.errorImg.height/4 }}px" src="{{item.errorImg.url}}?mageMogr2/auto-orient/thumbnail/750x/format/jpg/interlace/1/blur/1x0/quality/100|imageslim" lazy-load="true"/>
           </view>
-          <view class="zan-cell zan-font-12" style="padding: 7px 15px">
-            <view class="zan-cell__bd zan-row ">
-              <view class="zan-col zan-col-8 zan-font--primary">{{item.workbookName}}</view>
-              <view class="zan-col zan-col-8 zan-font--primary">下载：{{item.downNum}}</view>
+          <view class="zan-cell zan-font-12" style="padding: 7px 15px;height:30px;line-height: 30px;">
+            <view class="zan-cell__bd zan-row">
+              <!--练习册名称点击出次数-->
+              <view class="zan-col zan-col-8 {{item.count ? 'zan-font--orange' : 'zan-font--primary'}}" bindtap="_count" data-wpy_count-a="{{item.count}}">
+                {{item.workbookName}}
+              </view>
+              <view class="zan-col zan-col-9 zan-font--primary">下载：{{item.downNum}}</view>
+              <!--订正的操作-->
+              <view class="zan-col zan-col-7">
+                <picker bindchange="_reviseChange" data-current="{{index}}" value="{{item.revise === 'true' ? 1 : 0}}" range="{{revise.array}}" range-key="name">
+                  <button  wx:if="{{item.revise === 'null'}}" class="zan-btn zan-btn--small zan-btn--disabled">订　正</button>
+                  <button  wx:elif="{{item.revise === 'true'}}" class="zan-btn zan-btn--small zan-btn--plain zan-btn--primary">搞对了</button>
+                  <button wx:else="{{item.revise === 'false'}}" class="zan-btn zan-btn--small zan-btn--plain zan-btn--warn">又错了</button>
+                </picker>
+              </view>
             </view>
           </view>
         </view>
@@ -39,11 +50,11 @@
 </block>
 
     </scroll-view>
-    <view class="footer _2cedc4e">
-      <view class="zan-row _2cedc4e">
-        <button class="zan-col zan-col-16 zan-col-offset-4 zan-btn zan-btn--primary _2cedc4e" bindtap="_download">
+    <view class="footer">
+      <view class="zan-row">
+        <button class="zan-col zan-col-16 zan-col-offset-4 zan-btn zan-btn--primary" bindtap="_download">
           <image mode="aspectFit" style="width:24px;height:24px;top:6px;position:relative;" src="../../common/resources/icon_download.png"/>
-          下载{{count}}道错题
+          下载
         </button>
       </view>
     </view>
