@@ -119,7 +119,7 @@ export default class extends wepy.app {
 
   globalData = {
     system: {},
-    paperFilter: {
+    paperChengpinFilter: {
       tag: 'hot',
       type: '0',
       grade: '8',

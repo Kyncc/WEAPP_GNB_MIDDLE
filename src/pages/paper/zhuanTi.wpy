@@ -2,12 +2,11 @@
 .paperZhuanTi{
   .header{
     padding:3px 0;
-    height:40px;
+    height: 80px;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    background: #fff;
     z-index: 2;
   }
   .zan-btn {
@@ -18,13 +17,17 @@
 
 <template>
   <view class="container paperZhuanTi">
-    <view class="zan-row zan-cell header">
-      <!-- <view class="zan-col zan-col-12">
-        <button class="zan-col-offset-1 zan-btn zan-btn--small {{options.tag === 'hot' ? 'zan-btn--primary':''}}" bindtap='_select(hot)'>精品</button>
-        <button class="zan-col-offset-1 zan-btn zan-btn--small {{options.tag === 'new' ? 'zan-btn--primary':''}}" bindtap='_select(new)'>时间</button>
-      </view> -->
+    <view class="header">
+      <view class="zan-row">  
+        <gnbChapterSelect :value.sync="options.chapterName" :key.sync="options.chapterId" @event.user="chapterChange" :chapter.sync="chapterList"/>
+      </view>
+      <view class="zan-row" style="padding:5px 0;">
+        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{options.tag === '真题' ? 'zan-btn--primary':''}}" bindtap='_select(真题)'>真题</button>
+        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{options.tag === '计算' ? 'zan-btn--primary':''}}" bindtap='_select(计算)'>计算</button>
+        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{options.tag === '证明' ? 'zan-btn--primary':''}}" bindtap='_select(证明)'>证明</button>
+      </view>
     </view>
-    <scroll-view scroll-y style="height: {{scrollHeight}}px;margin-top: 45px;" lower-threshold="200" bindscrolltolower="_loadMore">
+    <scroll-view scroll-y style="height: {{scrollHeight}}px;margin-top: 90px;" lower-threshold="200" bindscrolltolower="_loadMore">
       <repeat for="{{list}}" key="index" index="index" item="item">
         <view class="zan-panel" style="margin-top: 5px;" bindtap='_download({{item}})'>
           <view class="zan-cell" style="padding: 7px 15px">
@@ -47,31 +50,46 @@
 <script>
   import wepy from 'wepy'
   import zanLoadMore from '@/components/zan-loadmore'
+  import gnbChapterSelect from '@/components/gnb-chapterSelect'
   
   export default class PaperZhuanTi extends wepy.page {
     config = {
-      navigationBarTitleText: '分层练习'
+      navigationBarTitleText: '专题汇编'
     }
 
     data = {
       list: [],
       offset: '',
       scrollHeight: '',
+      chapterList: [],
       options: {
-        tag: 'hot',
-        type: '0',
-        grade: '3',
-        year: '0'
+        tag: '真题',
+        chapterName: '',
+        chapterId: '0'
       },
       loading: true,
       nomore: false
     }
 
     components = {
-      zanLoadmore1: zanLoadMore
+      zanLoadmore1: zanLoadMore,
+      gnbChapterSelect: gnbChapterSelect
     }
 
     methods = {
+      /** 选择标签 */
+      _select (value) {
+        this.options.tag = value
+        this._getList()
+      },
+      async chapterChange (id) {
+        try {
+          this.list = await this._getPaperList(this.offset, this.options)
+          this.$apply()
+        } catch (error) {
+          console.log(error)
+        }
+      },
       /** 加载更多 */
       _loadMore () {
         // 无更多数据或者正在加载则返回
@@ -89,16 +107,31 @@
         })
       }
     }
+
     /** 试卷下载 */
     _getPaperList (offset, options) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/resource',
+          url: 'https://mid.guinaben.com/resource/special',
           data: {
             offset: offset,
             options: {
               ...options
             }
+          },
+          success (res) { resolve(res) },
+          fail (err) { reject(err) }
+        })
+      })
+    }
+
+    /** 获取章节 */
+    _getChapterList (id) {
+      return new Promise((resolve, reject) => {
+        wepy.request({
+          url: 'https://mid.guinaben.com/textbook/chapter',
+          data: {
+            textbookId: id
           },
           success (res) { resolve(res) },
           fail (err) { reject(err) }
@@ -125,15 +158,17 @@
       }
     }
 
-    onLoad() {
+    async onLoad(options) {
+      this.chapterList = await this._getChapterList(options.textbookId)
+      this.options.chapterName = this.chapterList[0].name
+      this.options.chapterId = this.chapterList[0].chapterId
+      this.$apply()
+      this._getList()
       this.scrollHeight = this.$parent.globalData.system.windowHeight - 30
     }
 
     onShow() {
-      this.options.type = this.$parent.globalData.paperFilter.type
-      this.options.grade = this.$parent.globalData.paperFilter.grade
-      this.options.year = this.$parent.globalData.paperFilter.year
-      this._getList()
+      // this._getList()
     }
 
     onShareAppMessage (res) {
