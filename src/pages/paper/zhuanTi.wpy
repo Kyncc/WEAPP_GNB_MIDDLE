@@ -19,12 +19,12 @@
   <view class="container paperZhuanTi">
     <view class="header">
       <view class="zan-row">  
-        <gnbChapterSelect :value.sync="options.chapterName" :key.sync="options.chapterId" @event.user="chapterChange" :chapter.sync="chapterList"/>
+        <gnbChapterSelect :value.sync="chapterIndex" :key.sync="chapterId" @event.user="chapterChange" :chapter.sync="chapterList"/>
       </view>
       <view class="zan-row" style="padding:5px 0;">
-        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{options.tag === '真题' ? 'zan-btn--primary':''}}" bindtap='_select(真题)'>真题</button>
-        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{options.tag === '计算' ? 'zan-btn--primary':''}}" bindtap='_select(计算)'>计算</button>
-        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{options.tag === '证明' ? 'zan-btn--primary':''}}" bindtap='_select(证明)'>证明</button>
+        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{tag === '真题' ? 'zan-btn--primary':''}}" bindtap='_select(真题)'>真题</button>
+        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{tag === '计算' ? 'zan-btn--primary':''}}" bindtap='_select(计算)'>计算</button>
+        <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{tag === '证明' ? 'zan-btn--primary':''}}" bindtap='_select(证明)'>证明</button>
       </view>
     </view>
     <scroll-view scroll-y style="height: {{scrollHeight}}px;margin-top: 90px;" lower-threshold="200" bindscrolltolower="_loadMore">
@@ -62,11 +62,9 @@
       offset: '',
       scrollHeight: '',
       chapterList: [],
-      options: {
-        tag: '真题',
-        chapterName: '',
-        chapterId: '0'
-      },
+      chapterIndex: 0,
+      chapterId: '0',
+      tag: '真题',
       loading: true,
       nomore: false
     }
@@ -79,13 +77,25 @@
     methods = {
       /** 选择标签 */
       _select (value) {
-        this.options.tag = value
+        this.tag = value
+        this.offset = ''
+        this.$apply()
         this._getList()
       },
+      /** 进入下载 */
+      _download (item) {
+        // 不是会员跳转到VIP购买, 是跳转到下载
+        if (Number(wepy.getStorageSync('gnb_middle_User').vip)) {
+          wepy.navigateTo({url: `/pages/my/email?id=${item.id}&type=paper&tag=7`})
+        } else {
+          wepy.navigateTo({url: `/pages/my/vip`})
+        }
+      },
+      /** 章节名称切换 */
       async chapterChange (id) {
         try {
-          this.list = await this._getPaperList(this.offset, this.options)
-          this.$apply()
+          this.offset = ''
+          this._getList()
         } catch (error) {
           console.log(error)
         }
@@ -95,7 +105,7 @@
         // 无更多数据或者正在加载则返回
         if (this.loading || this.nomore) return
         this.loading = true
-        this._getPaperList(this.offset, this.options).then((res) => {
+        this._getPaperList(this.offset, {tag: this.tag, chapterId: this.chapterId}).then((res) => {
           this.loading = false
           this.list = this.list.concat(res.list)
           this.offset = res.offset
@@ -108,7 +118,7 @@
       }
     }
 
-    /** 试卷下载 */
+    /** 获取试卷列表 */
     _getPaperList (offset, options) {
       return new Promise((resolve, reject) => {
         wepy.request({
@@ -124,7 +134,6 @@
         })
       })
     }
-
     /** 获取章节 */
     _getChapterList (id) {
       return new Promise((resolve, reject) => {
@@ -138,12 +147,12 @@
         })
       })
     }
-
+    /** 获取页面数据的整体流程 */
     async _getList () {
       this.list = []
       this.offset = ''
       try {
-        let result = await this._getPaperList(this.offset, this.options)
+        let result = await this._getPaperList(this.offset, {tag: this.tag, chapterId: this.chapterId})
         this.loading = false
         this.list = result.list
         this.offset = result.offset
@@ -160,15 +169,9 @@
 
     async onLoad(options) {
       this.chapterList = await this._getChapterList(options.textbookId)
-      this.options.chapterName = this.chapterList[0].name
-      this.options.chapterId = this.chapterList[0].chapterId
-      this.$apply()
+      this.chapterId = this.chapterList[0].chapterId
       this._getList()
-      this.scrollHeight = this.$parent.globalData.system.windowHeight - 30
-    }
-
-    onShow() {
-      // this._getList()
+      this.scrollHeight = this.$parent.globalData.system.windowHeight - 80
     }
 
     onShareAppMessage (res) {

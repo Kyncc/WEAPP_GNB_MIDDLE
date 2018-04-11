@@ -1,7 +1,7 @@
 <template>
   <picker style="margin-top: 0" class="zan-panel" bindchange="bindPickerChange" range="{{ chapter }}" value="{{ value }}" range-key="name">
     <view class="picker zan-cell">
-      {{title}}:　{{chapter[value].name}}
+      {{title}}:　{{chapter[value].name || chapter[0].name}}
       <view class="zan-arrow"></view>
     </view>
   </picker>

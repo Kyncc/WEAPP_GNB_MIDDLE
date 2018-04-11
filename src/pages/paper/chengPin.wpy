@@ -80,7 +80,7 @@
       _download (item) {
         // 不是会员跳转到VIP购买, 是跳转到下载
         if (Number(wepy.getStorageSync('gnb_middle_User').vip)) {
-          wepy.navigateTo({url: `/pages/my/email?id=${item.id}&type=paper`})
+          wepy.navigateTo({url: `/pages/my/email?id=${item.id}&type=paper&tag=2`})
         } else {
           wepy.navigateTo({url: `/pages/my/vip`})
         }
@@ -146,7 +146,7 @@
 
     onLoad(options) {
       this.options.textbookId = options.textbookId
-      this.scrollHeight = this.$parent.globalData.system.windowHeight - 30
+      this.scrollHeight = this.$parent.globalData.system.windowHeight - 40
       this.$apply()
     }
 
