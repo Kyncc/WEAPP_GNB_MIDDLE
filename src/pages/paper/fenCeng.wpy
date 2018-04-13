@@ -28,8 +28,8 @@
         <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'D' ? 'zan-btn--primary':''}}" bindtap='_select(D)'>D</button>
         <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'E' ? 'zan-btn--primary':''}}" bindtap='_select(E)'>E</button>
         <icon class="zan-col-2 zan-right"  type="info" size="20" color="grey"/>
-        <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'F' ? 'zan-btn--primary':''}}" bindtap='_select(F)'>F</button>
-        <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'G' ? 'zan-btn--primary':''}}" bindtap='_select(G)'>G</button>
+        <!-- <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'F' ? 'zan-btn--primary':''}}" bindtap='_select(F)'>F</button>
+        <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'G' ? 'zan-btn--primary':''}}" bindtap='_select(G)'>G</button> -->
       </view>
     </view>
     <scroll-view scroll-y style="height: {{scrollHeight}}px;margin-top: 130px;" lower-threshold="200" bindscrolltolower="_loadMore">
@@ -69,7 +69,7 @@
       chapterList: [],
       chapterIndex: 0,
       chapterId: '0',
-      tag: 'G',
+      tag: 'A',
       loading: true,
       nomore: false
     }
