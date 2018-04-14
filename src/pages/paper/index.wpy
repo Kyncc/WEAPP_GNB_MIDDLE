@@ -55,7 +55,7 @@
             <image src="../../common/resources/icon_new.png" mode="aspectFit"/>
           </view>
           <view class="zan-card__detail-row">
-            <view class="zan-card__left-col zan-font-16" style="margin: 30rpx 0 10rpx;font-weight:bold;">专题试卷</view>
+            <view class="zan-card__left-col zan-font-16" style="margin: 30rpx 0 10rpx;font-weight:bold;">专题汇编</view>
           </view>
           <view class="zan-card__detail-row zan-c-gray-darker">
             <view class="zan-card__left-col zan-font-12" style="margin-bottom: 10rpx;">专项练习，各个击破</view>
@@ -64,7 +64,7 @@
         </view>
       </view>
     </view>
-    <!--分层练习-->
+    <!--分层练习
     <view class="zan-panel card" bindtap="_intoPage(fenCeng)">
       <view class="zan-card">
         <view class="zan-card__thumb">
@@ -83,7 +83,7 @@
           </view>
         </view>
       </view>
-    </view>
+    </view>-->
     <!--记错题
     <view class="zan-panel card" bindtap="_intoPage(jiLu)">
       <view class="zan-card">

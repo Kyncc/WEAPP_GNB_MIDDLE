@@ -109,6 +109,9 @@
           this.loading = false
           this.list = this.list.concat(res.list)
           this.offset = res.offset
+          if (this.offset.length === 0) {
+            this.nomore = true
+          }
           this.$apply()
         }).catch(() => {
           this.nomore = true

@@ -48,7 +48,7 @@
     }
 
     data = {
-      grade: wepy.getStorageSync('gnb_primary_User').grade,
+      grade: wepy.getStorageSync('gnb_middle_User').grade,
       year: '0',
       type: '0'
     }

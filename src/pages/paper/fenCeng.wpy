@@ -21,7 +21,7 @@
       <view class="zan-row">  
         <gnbChapterSelect :value.sync="chapterIndex" :key.sync="chapterId" @event.user="chapterChange" :chapter.sync="chapterList"/>
       </view>
-      <view class="zan-row" style="padding:10px 0 0;">
+      <view class="zan-row" style="padding:10px;">
         <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'A' ? 'zan-btn--primary':''}}" bindtap='_select(A)'>A</button>
         <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'B' ? 'zan-btn--primary':''}}" bindtap='_select(B)'>B</button>
         <button class="zan-col-offset-1 zan-col-3 zan-btn zan-btn--small {{tag === 'C' ? 'zan-btn--primary':''}}" bindtap='_select(C)'>C</button>
@@ -114,6 +114,9 @@
           this.loading = false
           this.list = this.list.concat(res.list)
           this.offset = res.offset
+          if (this.offset.length === 0) {
+            this.nomore = true
+          }
           this.$apply()
         }).catch(() => {
           this.nomore = true
