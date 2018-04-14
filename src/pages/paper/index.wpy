@@ -58,7 +58,7 @@
             <view class="zan-card__left-col zan-font-16" style="margin: 30rpx 0 10rpx;font-weight:bold;">专题汇编</view>
           </view>
           <view class="zan-card__detail-row zan-c-gray-darker">
-            <view class="zan-card__left-col zan-font-12" style="margin-bottom: 10rpx;">专项练习，各个击破</view>
+            <view class="zan-card__left-col zan-font-12" style="margin-bottom: 10rpx;">有的放矢，高效刷题</view>
             <view class="zan-card__left-col zan-font-12" style="color:#3FC6C6;margin-bottom: 10rpx;">今日更新 {{list.special.new}} · 今日下载 {{list.special.total}}</view>
           </view>
         </view>
