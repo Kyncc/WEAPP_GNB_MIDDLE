@@ -1,7 +1,6 @@
 <style lang="less">
 .paperZhuanTi{
   .header{
-    padding:3px 0;
     height: 80px;
     width: 100%;
     position: fixed;
@@ -18,16 +17,16 @@
 <template>
   <view class="container paperZhuanTi">
     <view class="header">
-      <view class="zan-row">  
+      <view class="zan-row">
         <gnbChapterSelect :value.sync="chapterIndex" :key.sync="chapterId" @event.user="chapterChange" :chapter.sync="chapterList"/>
       </view>
-      <view class="zan-row" style="padding:5px 0;">
+      <view class="zan-row" style="padding:8px 0;">
         <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{tag === '真题' ? 'zan-btn--primary':''}}" bindtap='_select(真题)'>真题</button>
         <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{tag === '计算' ? 'zan-btn--primary':''}}" bindtap='_select(计算)'>计算</button>
         <button class="zan-col-offset-1 zan-col-4 zan-btn zan-btn--small {{tag === '证明' ? 'zan-btn--primary':''}}" bindtap='_select(证明)'>证明</button>
       </view>
     </view>
-    <scroll-view scroll-y style="height: {{scrollHeight}}px;margin-top: 90px;" lower-threshold="200" bindscrolltolower="_loadMore">
+    <scroll-view scroll-y style="height: {{scrollHeight}}px;margin-top: 85px;" lower-threshold="200" bindscrolltolower="_loadMore">
       <repeat for="{{list}}" key="index" index="index" item="item">
         <view class="zan-panel" style="margin-top: 5px;" bindtap='_download({{item}})'>
           <view class="zan-cell" style="padding: 7px 15px">
@@ -35,7 +34,7 @@
             <text>{{item.name}}</text>
           </view>
           <view class="zan-cell" style="padding: 7px 15px">
-            <view class="zan-cell__bd zan-row zan-c-gray zan-font-12 ">
+            <view class="zan-cell__bd zan-row zan-c-gray zan-font-12">
               <view class="zan-col zan-col-9 zan-font--primary">更新：{{item.time}}</view>
               <view class="zan-col zan-col-9 zan-font--primary">下载：{{item.downloadNumber}}</view>
             </view>
@@ -92,13 +91,8 @@
         }
       },
       /** 章节名称切换 */
-      async chapterChange (id) {
-        try {
-          this.offset = ''
-          this._getList()
-        } catch (error) {
-          console.log(error)
-        }
+      chapterChange (id) {
+        this._getList()
       },
       /** 加载更多 */
       _loadMore () {
@@ -154,6 +148,7 @@
     async _getList () {
       this.list = []
       this.offset = ''
+      this.nomore = false
       try {
         let result = await this._getPaperList(this.offset, {tag: this.tag, chapterId: this.chapterId})
         this.loading = false

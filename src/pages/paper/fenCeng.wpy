@@ -158,6 +158,7 @@
     async _getList () {
       this.list = []
       this.offset = ''
+      this.nomore = false
       try {
         let result = await this._getPaperList(this.offset, {tag: this.tag, chapterId: this.chapterId})
         this.loading = false
