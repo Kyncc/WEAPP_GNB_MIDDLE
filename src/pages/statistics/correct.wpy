@@ -87,7 +87,7 @@
     /** 分享全局 */
     onShareAppMessage (res) {
       return {
-        title: '各位家长，用这个记错题，速度快，用处大',
+        title: '各位家长：这样记错题，速度快、好处多',
         path: `/pages/statistics/share?content=${this.result.content}&date=${this.result.date}&name=${this.name}`
       }
     }

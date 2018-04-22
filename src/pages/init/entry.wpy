@@ -3,7 +3,7 @@
   .footer_btn__primary{
     opacity: 0;
     position: absolute;
-    bottom: 110rpx;
+    bottom: 55rpx;
     width: 230rpx;
     height:80rpx;
     left: 110rpx;
@@ -11,7 +11,7 @@
   .footer_btn__middle{
     opacity: 0;
     position: absolute;
-    bottom: 110rpx;
+    bottom: 55rpx;
     width: 230rpx;
     height:80rpx;
     right:110rpx;
@@ -22,7 +22,7 @@
 <template>
   <view class="container InitEntry" style="position:relative">
     <view class="zan-row zan-center">
-      <image class="zan-row zan-center" mode="scaleToFill" src="../../common/resources/entry1.jpg" style="width:750rpx;height:1534rpx;"/>
+      <image class="zan-row zan-center" mode="scaleToFill" src="../../common/resources/entry1.jpg" style="width:750rpx;height:1334rpx;"/>
       <button class="footer_btn__primary" bindtap='_intoPrimary()'></button>
       <button class="footer_btn__middle" bindtap='_intoMiddle()'></button>
     </view>
