@@ -45,7 +45,6 @@
 <script>
 import wepy from 'wepy'
 import 'wepy-async-function'
-import './common/libs/ald/ald-stat-conf'
 
 export default class extends wepy.app {
   config = {
