@@ -121,10 +121,9 @@ export default class extends wepy.app {
     paperChengpinFilter: {
       tag: 'hot',
       type: '0',
-      grade: '8',
       year: '0'
     },
-    statisticsSelect: ['1']
+    statisticsSelect: ['2']
   }
 
   constructor () {

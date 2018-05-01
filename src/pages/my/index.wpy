@@ -66,7 +66,7 @@
 
   export default class Index extends wepy.page {
     config = {
-      navigationBarTitleText: '我的'
+      navigationBarTitleText: '错题归纳本'
     }
 
     data = {
