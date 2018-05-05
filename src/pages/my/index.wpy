@@ -104,7 +104,7 @@
     }
 
     async onShow () {
-    this.userInfo.name = wepy.getStorageSync('gnb_middle_User').name
+      this.userInfo.name = wepy.getStorageSync('gnb_middle_User').name
       this.userInfo.headImg = wepy.getStorageSync('gnb_middle_User').headImg
       this.userInfo.vip = wepy.getStorageSync('gnb_middle_User').vip
       this.$apply()
