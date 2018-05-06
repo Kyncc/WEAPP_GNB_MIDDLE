@@ -3,7 +3,7 @@
     
   <picker style="margin-top: 0" class="zan-panel header _fee527b" bindchange="$gnbTextbookSelect$bindPickerChange" range="{{ $gnbTextbookSelect$textbook }}" value="{{ $gnbTextbookSelect$value }}" range-key="name">
     <view class="picker zan-cell">
-      {{$gnbTextbookSelect$title}}:　{{$gnbTextbookSelect$name}}
+      人教版:　{{$gnbTextbookSelect$name}}
       <view class="zan-arrow"/>
     </view>
   </picker>

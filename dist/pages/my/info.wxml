@@ -10,7 +10,7 @@
 
        <!-- <sexField v-bind:options.once="base_sex"  componentId="sexField"/> -->
        <view class="zan-cell _1ac1ad7">
-        <view class="zan-cell__hd zan-field__title zan-font-14 _1ac1ad7">年级</view>
+        <view class="zan-cell__hd zan-field__title zan-font-16 _1ac1ad7">年级</view>
         <picker disabled="true" class="zan-cell__bd _1ac1ad7" style="font-size: 14px;" bindchange="bindGradeChange" value="{{gradeIndex}}" range="{{gradeList}}">
           {{gradeList[gradeIndex]}}
         </picker>
