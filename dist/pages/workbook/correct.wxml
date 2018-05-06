@@ -1,9 +1,9 @@
 
-  <view class="container _6b741c7">
-    <view class="correct_name zan-center zan-font-22 zan-font-bold _6b741c7">{{name}}</view>
-    <view class="correct_content _6b741c7">{{result.content}}</view>
-    <view class="correct_date zan-center zan-font-14 _6b741c7">{{result.date}}</view>
-    <view class="correct_app zan-center zan-font-14 _6b741c7">归纳本</view>
-    <button class="share_button _6b741c7" open-type="share">分享</button>
-    <image src="../../common/resources/chapterExerciseCorrect.jpg" style="width:750rpx;height:100vh" mode="aspectFit"/>
+  <view class="container _3d06c53">
+    <view class="correct_name zan-center zan-font-22 zan-font-bold _3d06c53">{{name}}</view>
+    <view class="correct_content _3d06c53">{{result.content}}</view>
+    <view class="correct_date zan-center zan-font-14 _3d06c53">{{result.date}}</view>
+    <view class="correct_app zan-center zan-font-14 _3d06c53">归纳本</view>
+    <button class="share_button _3d06c53" open-type="share">分享</button>
+    <image src="../../common/resources/chapterExerciseCorrect.jpg" style="width:750rpx;height:100vh" mode="aspectFit" class="_3d06c53"/>
   </view>

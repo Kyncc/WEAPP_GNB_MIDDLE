@@ -145,13 +145,13 @@
 
     methods = {
       _intoPage (value) {
-        wepy.navigateTo({url: `/pages/paper/${value}?textbookId=${this.textbook}`})
+        wepy.navigateTo({url: `/pages/paper/${value}?textbookId=${wepy.getStorageSync('gnb_middle_User').textbookId}`})
       },
 
       async textbookChange (id) {
         try {
           let userinfo = await this._setUserInfo(id)
-          wepy.setStorageSync('gnb_primary_User', userinfo)
+          wepy.setStorageSync('gnb_middle_User', userinfo)
           this.list = await this._getPaper(id)
           this.$apply()
         } catch (error) {
