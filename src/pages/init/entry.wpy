@@ -40,7 +40,7 @@
     methods = {
       // 进入初中
       _intoMiddle () {
-        wepy.reLaunch({ url: `/pages/my/index` })
+        wepy.reLaunch({ url: `/pages/workbook/index` })
       },
       // 进入小学
       _intoPrimary () {

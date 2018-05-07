@@ -185,6 +185,7 @@
     onShareAppMessage (res) {
       return {
         title: '各位家长：这样记错题，速度快、好处多',
+        imageUrl: 'http://img.guinaben.com/gnb_miniprogram_share.jpg?imageView2/0/q/75|imageslim',
         path: '/pages/workbook/index'
       }
     }
