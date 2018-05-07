@@ -222,7 +222,9 @@ exports.default = {
                         mix[v] && mix[v].apply(page, args);
                     });
 
-                    page.$apply();
+                    if (v !== 'onPageScroll') {
+                        page.$apply();
+                    }
 
                     return rst;
                 };
@@ -231,6 +233,12 @@ exports.default = {
 
         if (!page.onShareAppMessage) {
             delete config.onShareAppMessage;
+        }
+
+        if ([].concat(page.$mixins, page).findIndex(function (mix) {
+            return mix['onPageScroll'];
+        }) === -1) {
+            delete config.onPageScroll;
         }
 
         return $bindEvt(config, page, '');

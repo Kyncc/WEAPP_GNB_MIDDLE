@@ -18,7 +18,7 @@
       </view>
     </view>
     <view class="zan-row">
-      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary {{emailDisabled ? '' : 'zan-btn--disabled'}}" disabled="{{!emailDisabled}}" bindtap="_send" style="border-radius: 5px;">
+      <button class="zan-col zan-col-18 zan-col-offset-3 zan-btn zan-btn--primary zan-btn--middle {{emailDisabled ? '' : 'zan-btn--disabled'}}" open-type="getUserInfo" bindgetuserinfo="_send" disabled="{{!emailDisabled}}" style="border-radius: 5px;">
         发送
       </button>
     </view>

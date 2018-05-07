@@ -25,8 +25,11 @@
           </view>
         </view>
       </block>
+      <view wx:if="{{count === 0}}" class="zan-font-16 zan-center" style="padding: 20px 0;">
+        <p>全部订正完成！</p>
+      </view> 
       
-<block>
+<block wx:if="{{count !== 0}}">
   <block  wx:if="{{$zanLoadmore1$nomore}}">
     <view class="zan-loadmore zan-loadmore--nomore">
       <!-- <view class="zan-loadmore__tips">
