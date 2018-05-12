@@ -1,0 +1,85 @@
+<style lang="less">
+.MyClasses{
+  
+}
+</style>
+
+<template>
+  <view class="container MyClasses">
+    <text class="zan-c-gray zan-font-14">请填写学校编码，等待老师为你分配班级</text>
+    <view class="zan-panel zan-row">
+      <codeField class="zan-col-20" :options.sync="code" componentId="codeField"/>
+      <button class="zan-col zan-col-4 zan-btn zan-btn--primary" bindtap='_save'>保存</button>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import zanField from '@/components/zan-field'
+  
+  export default class MyClasses extends wepy.page {
+    config = {
+      navigationBarTitleText: '我的班级'
+    }
+
+    components = {
+      codeField: zanField
+    }
+
+    data = {
+      code: {
+        title: '',
+        value: '',
+        placeholder: '请输入学校编码'
+      }
+    }
+
+    events = {
+      zanFieldChange(e) {
+        let { componentId, detail } = e
+        if (componentId === 'code') {
+          this.code.value = detail.value
+        }
+        this.$apply()
+      }
+    }
+    methods = {
+    }
+
+    /** 获取班级列表 */
+    _getClasses () {
+      return new Promise((resolve, reject) => {
+        wepy.request({
+          url: 'https://primary.guinaben.com/member/school',
+          data: {
+          },
+          success (res) { resolve(res) },
+          fail (err) { reject(err) }
+        })
+      })
+    }
+
+    /** 绑定用户 */
+    _bindClass (code) {
+      wepy.showLoading({title: '请稍候'})
+      return new Promise((resolve, reject) => {
+        wepy.request({
+          url: 'https://mid.guinaben.com/member/addSchool',
+          method: 'POST',
+          data: {
+            code: code
+          },
+          success (res) {
+            wepy.hideLoading()
+            resolve(res)
+          },
+          fail (err) {
+            wepy.hideLoading()
+            reject(err)
+          }
+        })
+      })
+    }
+  }
+</script>

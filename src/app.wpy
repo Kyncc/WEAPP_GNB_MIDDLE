@@ -54,6 +54,7 @@ export default class extends wepy.app {
       'pages/init/twice',
       'pages/my/index',
       'pages/my/vip',
+      'pages/my/classes',
       'pages/my/info',
       'pages/my/pay',
       'pages/my/email',
