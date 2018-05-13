@@ -135,7 +135,7 @@ export default class extends wepy.app {
         let header = {
           'openId': wepy.getStorageSync('gnb_middle_openId') || ''
         }
-        wepy.showNavigationBarLoading()
+        // wepy.showNavigationBarLoading()
         params.header = header
         return params
       },

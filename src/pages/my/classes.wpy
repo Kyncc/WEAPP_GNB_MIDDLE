@@ -6,11 +6,25 @@
 
 <template>
   <view class="container MyClasses">
-    <text class="zan-c-gray zan-font-14">请填写学校编码，等待老师为你分配班级</text>
-    <view class="zan-panel zan-row">
-      <codeField class="zan-col-20" :options.sync="code" componentId="codeField"/>
-      <button class="zan-col zan-col-4 zan-btn zan-btn--primary" bindtap='_save'>保存</button>
+    <text class="zan-c-gray zan-font-14" style="padding: 20rpx;">请填写学校编码，等待老师为你分配班级</text>
+    <view class="zan-panel">
+      <view class="zan-row">
+        <view class="zan-col zan-col-16 zan-col-offset-1">
+          <codeField :options.sync="code" componentId="codeField"/>
+        </view>
+        <view class="zan-col zan-col-4 zan-col-offset-2">
+          <button open-type="getUserInfo" bindgetuserinfo="_save" class="zan-btn zan-btn--primary" size="mini" style="height:30px;margin-top:10px;">确定</button>
+        </view>
+      </view>
     </view>
+    <repeat for="{{classes}}" key="index" index="index" item="school">
+      <view class="zan-panel">
+        <view class="zan-cell">{{school.name}}</view>
+        <repeat for="{{school.classes}}" key="pindex" index="pindex" item="class">
+          <view class="zan-cell">{{class.name}}</view>
+        </repeat>
+      </view>
+    </repeat>
   </view>
 </template>
 
@@ -32,26 +46,64 @@
         title: '',
         value: '',
         placeholder: '请输入学校编码'
-      }
+      },
+      classes: []
     }
 
     events = {
       zanFieldChange(e) {
         let { componentId, detail } = e
-        if (componentId === 'code') {
+        if (componentId === 'codeField') {
           this.code.value = detail.value
         }
         this.$apply()
       }
     }
     methods = {
+      /** 保存班级信息 */
+      async _save (res) {
+        // 授权判断
+        if (res.detail.errMsg !== 'getUserInfo:ok') {
+          wepy.showToast({ title: '请不要拒绝授权', icon: 'none' })
+          return
+        }
+        // 第一次上传个人信息
+        if (!wepy.getStorageSync('gnb_middle_User').bind) {
+          await this._bindUser(res.detail)
+        }
+        await this._bindClass(this.code.value)
+        this.classes = await this._getClasses()
+        this.$apply()
+      }
+    }
+
+    /** 绑定用户 */
+    _bindUser (user) {
+      return new Promise((resolve, reject) => {
+        wepy.request({
+          url: 'https://mid.guinaben.com/v2/member/infoInit',
+          method: 'POST',
+          data: {
+            encryptedData: user.encryptedData,
+            session_key: wepy.getStorageSync('gnb_middle_session_key'),
+            iv: user.iv
+          },
+          success (res) {
+            wepy.setStorageSync('gnb_middle_User', res)
+            resolve(res)
+          },
+          fail (err) {
+            reject(err)
+          }
+        })
+      })
     }
 
     /** 获取班级列表 */
     _getClasses () {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://primary.guinaben.com/member/school',
+          url: 'https://mid.guinaben.com/v2/member/school',
           data: {
           },
           success (res) { resolve(res) },
@@ -65,7 +117,7 @@
       wepy.showLoading({title: '请稍候'})
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://mid.guinaben.com/member/addSchool',
+          url: 'https://mid.guinaben.com/v2/member/addSchool',
           method: 'POST',
           data: {
             code: code
@@ -80,6 +132,22 @@
           }
         })
       })
+    }
+
+    async onShow () {
+      this.classes = await this._getClasses()
+      this.$apply()
+    }
+
+    onShareAppMessage (res) {
+      if (res.from === 'button') {
+        console.log(res.target)
+      }
+      return {
+        title: '各位家长：这样记错题，速度快、好处多',
+        imageUrl: 'http://img.guinaben.com/gnb_miniprogram_share.jpg?imageView2/0/q/75|imageslim',
+        path: '/pages/init/entry'
+      }
     }
   }
 </script>

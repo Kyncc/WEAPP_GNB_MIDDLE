@@ -92,7 +92,7 @@ export default class Statistics extends wepy.page {
     /** 增加练习册 */
     _initAdd () {
       wepy.navigateTo({
-        url: `/pages/workbook/add?id=${this.textbook}`
+        url: `/pages/workbook/add?id=${wepy.getStorageSync('gnb_middle_User').textbookId}`
       })
     }
   }
@@ -185,6 +185,7 @@ export default class Statistics extends wepy.page {
       })
     })
   }
+  
   async onShow() {
     try {
       /**

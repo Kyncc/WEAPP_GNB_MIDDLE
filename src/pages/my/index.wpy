@@ -41,7 +41,7 @@
       </view>
       <view class="zan-font-16 zan-cell" bindtap="_into('/pages/my/classes')" style="padding:5px 15px 15px">
         <view class="zan-cell__bd">
-          <image src='../../common/resources/icon_vip.png' style="width:28px;height:28px;position:relative;top:8px;margin-right:5px;" mode='scaleToFill'/>
+          <image src='../../common/resources/icon_class.png' style="width:28px;height:28px;position:relative;top:8px;margin-right:5px;" mode='scaleToFill'/>
           <text>我的班级</text>
         </view>
       </view>
