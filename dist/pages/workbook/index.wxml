@@ -8,24 +8,24 @@
     </view>
   </picker>
 
-    <view>
+    <view class="_4981622">
       <!--练习册区间-->
-      <view class="zan-panel" style="margin-top: 38px;">
-        <scroll>
-          <block wx:for="{{ workbookList }}" wx:for-index="pindex" wx:for-item="item" wx:key="pindex">
-            <view class="zan-card" bindtap="_intoChapter" data-wpy_intochapter-a="{{item}}">
+      <view class="zan-panel _4981622" style="margin-top: 38px;">
+        <scroll class="_4981622">
+          <block class="_4981622" wx:for="{{ workbookList }}" wx:for-index="pindex" wx:for-item="item" wx:key="pindex">
+            <view class="zan-card _4981622" bindtap="_intoChapter" data-wpy_intochapter-a="{{item}}">
               <!--练习册图片-->
-              <view class="zan-card__thumb">
-                <image class="zan-card__img" src="{{ item.img.url }}?imageView2/2/w/120/h/180/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
+              <view class="zan-card__thumb _4981622">
+                <image class="zan-card__img _4981622" src="{{ item.img.url }}?imageView2/2/w/120/h/180/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
               </view>
               <!--练习册详情-->
-              <view class="zan-card__detail">
-                <view class="zan-card__detail-row">
-                  <view class="zan-card__left-col zan-c-gray zan-font-14" style="color:#3FC6C6;margin: 8rpx 0 12rpx;">{{item.year}}版</view>
+              <view class="zan-card__detail _4981622">
+                <view class="zan-card__detail-row _4981622">
+                  <view class="zan-card__left-col zan-c-gray zan-font-14 _4981622" style="color:#3FC6C6;margin: 8rpx 0 12rpx;">{{item.year}}版</view>
                 </view>
-                <view class="zan-card__detail-row zan-c-gray-darker">
-                  <view class="zan-card__left-col zan-font-16" style="margin-bottom: 10rpx;">{{item.name}}</view>
-                  <view class="zan-card__left-col zan-font-14" style="color:#3FC6C6;margin-bottom: 10rpx;">{{item.number}}人正在使用</view>
+                <view class="zan-card__detail-row zan-c-gray-darker _4981622">
+                  <view class="zan-card__left-col zan-font-16 _4981622" style="margin-bottom: 10rpx;">{{item.name}}</view>
+                  <view class="zan-card__left-col zan-font-14 _4981622" style="color:#3FC6C6;margin-bottom: 10rpx;">{{item.number}}人正在使用</view>
                 </view>
               </view>
             </view>

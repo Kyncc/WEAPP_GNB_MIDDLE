@@ -1,12 +1,12 @@
 <style lang="less">
 .MyClasses{
-  
+  padding: 10px 0
 }
 </style>
 
 <template>
   <view class="container MyClasses">
-    <text class="zan-c-gray zan-font-14" style="padding: 20rpx;">请填写学校编码，等待老师为你分配班级</text>
+    <text class="zan-c-gray zan-font-14">　请填写学校编码，等待老师为你分配班级</text>
     <view class="zan-panel">
       <view class="zan-row">
         <view class="zan-col zan-col-15 zan-col-offset-1">
