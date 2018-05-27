@@ -2594,9 +2594,9 @@ wepy-eslint@^1.5.3:
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/wepy-eslint/-/wepy-eslint-1.5.3.tgz#48bd89309611152f1b83747484f4a6494a48b414"
 
-wepy@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/wepy/-/wepy-1.6.0.tgz#682bcd91dd2d1b4c4696c5e58447d960e7ea96f4"
+wepy@^1.7.0:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/wepy/-/wepy-1.7.1.tgz#2b0870ef35eadcb515815fc49a1889566c7240b7"
 
 which-module@^1.0.0:
   version "1.0.0"

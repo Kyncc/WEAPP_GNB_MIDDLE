@@ -32,7 +32,7 @@
   }
 }
 .zan-noticebar {
-  font-size: 14px;z
+  font-size: 14px;
 }
 .zan-card__thumb {
 	width: 60px;
