@@ -133,7 +133,8 @@ export default class extends wepy.app {
     this.intercept('request', {
       config(params) {
         let header = {
-          'openId': wepy.getStorageSync('gnb_middle_openId') || ''
+          'openId': wepy.getStorageSync('gnb_middle_openId') || '',
+          'periodId': '2'
         }
         // wepy.showNavigationBarLoading()
         params.header = header
