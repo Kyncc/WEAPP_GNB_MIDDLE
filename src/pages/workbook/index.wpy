@@ -185,7 +185,6 @@ export default class Statistics extends wepy.page {
       })
     })
   }
-  
   async onShow() {
     try {
       /**

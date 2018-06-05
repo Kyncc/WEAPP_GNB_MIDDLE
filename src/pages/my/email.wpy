@@ -194,7 +194,7 @@
             } else {
               wepy.showModal({
                 title: '提示',
-                content: '亲，超出任务了，明天再来吧！',
+                content: res._value.msg,
                 confirmText: '知道了',
                 showCancel: false
               })
