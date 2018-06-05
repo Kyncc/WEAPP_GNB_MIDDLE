@@ -133,7 +133,8 @@ export default class extends wepy.app {
     this.intercept('request', {
       config(params) {
         let header = {
-          'openId': wepy.getStorageSync('gnb_middle_openId') || ''
+          'openId': wepy.getStorageSync('gnb_middle_openId') || '',
+          'periodId': '2'
         }
         // wepy.showNavigationBarLoading()
         params.header = header
@@ -156,7 +157,7 @@ export default class extends wepy.app {
               title: res.data.msg,
               icon: 'none'
             })
-            return Promise.reject(new Error('错误的code'))
+            return Promise.reject(res.data)
           }
         } else if (statusCode === '403') {
           // openid为空
