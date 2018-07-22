@@ -71,7 +71,7 @@
               confirmText: '知道了',
               showCancel: false
             })
-          } else if (Number(wepy.getStorageSync('gnb_middle_User').vip)) {
+          } else if (Number(wepy.getStorageSync('gnb_middle_user').vip)) {
             wepy.navigateTo({ url: `/pages/my/email?id=${this.chapterId}&type=statistics` })
           } else {
             wepy.navigateTo({ url: `/pages/my/vip` })
@@ -83,7 +83,7 @@
     _getListCount (id, type) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://small.guinaben.com/v2/textbook/statistics/downloadNum',
+          url: 'https://api.guinaben.com/textbook/statistics/downloadNum',
           data: {
             chapterId: id,
             type: type.toString()

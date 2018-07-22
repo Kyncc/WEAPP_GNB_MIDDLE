@@ -51,7 +51,7 @@ export default class extends wepy.app {
     pages: [
       'pages/workbook/index',
       'pages/init/entry',
-      'pages/init/twice',
+      'pages/camera/index',
       'pages/my/index',
       'pages/my/vip',
       'pages/my/classes',
@@ -65,11 +65,11 @@ export default class extends wepy.app {
       'pages/workbook/share',
       'pages/workbook/chapter',
       'pages/workbook/exercise',
-      'pages/paper/index',
-      'pages/paper/chengPin',
-      'pages/paper/fenCeng',
-      'pages/paper/zhuanTi',
-      'pages/paper/chengPinFilter',
+      'pages/resource/index',
+      'pages/resource/chengPin',
+      'pages/resource/fenCeng',
+      'pages/resource/zhuanTi',
+      'pages/resource/chengPinFilter',
       'pages/statistics/index',
       'pages/statistics/error',
       'pages/statistics/select',
@@ -92,9 +92,9 @@ export default class extends wepy.app {
         selectedIconPath: 'common/resources/workbook_select.png',
         text: '错题本'
       }, {
-        pagePath: 'pages/paper/index',
-        iconPath: 'common/resources/paper.png',
-        selectedIconPath: 'common/resources/paper_select.png',
+        pagePath: 'pages/resource/index',
+        iconPath: 'common/resources/resource.png',
+        selectedIconPath: 'common/resources/resource_select.png',
         text: '资源'
       }, {
         pagePath: 'pages/my/index',
@@ -106,18 +106,18 @@ export default class extends wepy.app {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#FBFBFB',
-      navigationBarTitleText: '错题归纳本初中数学',
+      navigationBarTitleText: '错题归纳本初中',
       navigationBarTextStyle: 'black'
     },
     networkTimeout: {
-      request: 8000,
-      downloadFile: 8000
+      request: 6000,
+      downloadFile: 6000
     }
   }
 
   globalData = {
     system: {},
-    paperChengpinFilter: {
+    resourceChengpinFilter: {
       tag: 'hot',
       type: '0',
       year: '0'
@@ -157,7 +157,7 @@ export default class extends wepy.app {
               title: res.data.msg,
               icon: 'none'
             })
-            return Promise.reject(res.data)
+            return Promise.reject(new Error('错误的code'))
           }
         } else if (statusCode === '403') {
           // openid为空

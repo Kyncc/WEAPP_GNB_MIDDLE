@@ -1,13 +1,27 @@
 
-  <view class="container">
-    
-  <picker style="margin-top: 0" class="zan-panel" bindchange="$gnbTextbookSelect$bindPickerChange" range="{{ $gnbTextbookSelect$textbook }}" value="{{ $gnbTextbookSelect$value }}" range-key="name">
-    <view class="picker zan-cell">
-      人教版:　{{$gnbTextbookSelect$name}}
+  <view class="container StatisticsIndex">
+     <view class="header zan-row zan-font-14">
+      <view class="zan-col zan-col-12">
+        
+  <picker sclass="picker zan-c-gray-darker" bindchange="$gnbSubjectSelect$bindPickerChange" range="{{ $gnbSubjectSelect$list }}" value="{{ $gnbSubjectSelect$index }}" range-key="name">
+    <view class="picker zan-c-gray-darker">
+      {{$gnbSubjectSelect$list[$gnbSubjectSelect$index].name}}
       <view class="zan-arrow"/>
     </view>
   </picker>
 
+      </view>
+      <view class="zan-col zan-col-12">
+        
+  <picker class="picker zan-c-gray-darker" bindchange="$gnbTextbookSelect$bindPickerChange" range="{{ $gnbTextbookSelect$list }}" value="{{ $gnbTextbookSelect$index }}" range-key="name">
+    <view class="picker zan-c-gray-darker">
+      {{$gnbTextbookSelect$list[$gnbTextbookSelect$index].name}}
+      <view class="zan-arrow"/>
+    </view>
+  </picker>
+
+      </view>
+    </view>
     <view class="zan-panel">
       <view class="zan-row zan-cell">
         <view class="zan-col zan-col-6 zan-col-offset-6 zan-center">记题数</view>

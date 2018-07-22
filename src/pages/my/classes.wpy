@@ -17,7 +17,7 @@
           <codeField :options.sync="code" componentId="codeField"/>
         </view>
         <view class="zan-col zan-col-6 zan-col-offset-2" style="text-align: right">
-          <button open-type="getUserInfo" bindgetuserinfo="_save" class="zan-btn zan-btn--primary" size="mini" style="height:30px;margin:6px 6px 0 0;">确定</button>
+          <button open-type="getUserInfo" bindgetuserinfo="_save" class="zan-btn zan-btn--primary" size="mini" style="height:30px;margin:8px 6px 0 0;">确定</button>
         </view>
       </view>
     </view>
@@ -72,7 +72,7 @@
           return
         }
         // 第一次上传个人信息
-        if (!wepy.getStorageSync('gnb_middle_User').bind) {
+        if (!wepy.getStorageSync('gnb_middle_user').bind) {
           await this._bindUser(res.detail)
         }
         await this._bindClass(this.code.value)
@@ -85,7 +85,7 @@
     _bindUser (user) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://small.guinaben.com/v2/member/infoInit',
+          url: 'https://api.guinaben.com/member/bind',
           method: 'POST',
           data: {
             encryptedData: user.encryptedData,
@@ -93,7 +93,7 @@
             iv: user.iv
           },
           success (res) {
-            wepy.setStorageSync('gnb_middle_User', res)
+            wepy.setStorageSync('gnb_middle_user', res)
             resolve(res)
           },
           fail (err) {
@@ -107,8 +107,9 @@
     _getClasses () {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://small.guinaben.com/v2/member/school',
-          data: {},
+          url: 'https://api.guinaben.com/school',
+          data: {
+          },
           success (res) { resolve(res) },
           fail (err) { reject(err) }
         })
@@ -119,7 +120,7 @@
     _bindClass (code) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://small.guinaben.com/v2/member/addSchool',
+          url: 'https://api.guinaben.com/member/addSchool',
           method: 'POST',
           data: {
             code: code
@@ -140,9 +141,6 @@
     }
 
     onShareAppMessage (res) {
-      if (res.from === 'button') {
-        console.log(res.target)
-      }
       return {
         title: '各位家长：这样记错题，速度快、好处多',
         imageUrl: 'http://img.guinaben.com/gnb_miniprogram_share.jpg?imageView2/0/q/75|imageslim',

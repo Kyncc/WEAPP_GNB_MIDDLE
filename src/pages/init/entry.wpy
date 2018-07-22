@@ -25,6 +25,7 @@
       <image class="zan-row zan-center" mode="scaleToFill" src="../../common/resources/entry1.jpg" style="width:750rpx;height:1334rpx;"/>
       <button class="footer_btn__primary" bindtap='_intoPrimary()'></button>
       <button class="footer_btn__middle" bindtap='_intoMiddle()'></button>
+      <button class="footer_btn__high" bindtap='_intoHigh()'></button>
     </view>
   </view>
 </template>

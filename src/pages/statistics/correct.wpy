@@ -63,7 +63,7 @@
     _getContent (id) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://small.guinaben.com/v2/textbook/statistics/correct',
+          url: 'https://api.guinaben.com/textbook/statistics/correct',
           data: {
             chapterId: id
           },
@@ -80,7 +80,7 @@
     async onLoad(options) {
       wx.setNavigationBarTitle({title: options.name})
       this.result = await this._getContent(options.id)
-      this.name = wepy.getStorageSync('gnb_middle_User').name
+      this.name = wepy.getStorageSync('gnb_middle_user').name
       this.$apply()
     }
 

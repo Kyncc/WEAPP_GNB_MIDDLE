@@ -90,12 +90,12 @@
           return
         }
         // 第一次上传个人信息
-        if (!wepy.getStorageSync('gnb_middle_User').bind) {
+        if (!wepy.getStorageSync('gnb_middle_user').bind) {
           await this._bindUser(res.detail)
         }
         // 如果当前的Email和信息相同则发送，否则更新Email信息在发送
         let mail = this.form_email.value + this.emailCodes[this.emailCodeIndex]
-        if (mail !== wepy.getStorageSync('gnb_middle_User').email) {
+        if (mail !== wepy.getStorageSync('gnb_middle_user').email) {
           await this._setUserEmail(this.form_email.value + this.emailCodes[this.emailCodeIndex])
         }
         await this._sendEmail(this.id, this.type)
@@ -106,7 +106,7 @@
       wepy.showLoading({title: '请稍候'})
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://small.guinaben.com/v2/member/infoInit',
+          url: 'https://api.guinaben.com/member/info',
           method: 'POST',
           data: {
             encryptedData: user.encryptedData,
@@ -115,7 +115,7 @@
           },
           success (res) {
             wepy.hideLoading()
-            wepy.setStorageSync('gnb_middle_User', res)
+            wepy.setStorageSync('gnb_middle_user', res)
             resolve(res)
           },
           fail (err) {
@@ -130,13 +130,13 @@
       wepy.showLoading({title: '提交中'})
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://small.guinaben.com/v2/member/infoEdit',
+          url: 'https://api.guinaben.com/member/info',
           method: 'POST',
           data: {
             email: email
           },
           success (res) {
-            wepy.setStorageSync('gnb_middle_User', res)
+            wepy.setStorageSync('gnb_middle_user', res)
             resolve(res)
           },
           fail (err) {
@@ -154,18 +154,18 @@
       let url = ''
       let options = {}
       if (type === 'statistics') {
-        url = 'https://small.guinaben.com/v2/textbook/statistics/download'
+        url = 'https://api.guinaben.com/textbook/statistics/download'
         options = {
           chapterId: id,
           type: this.$parent.globalData.statisticsSelect.toString()
         }
       } else if (type === 'workbook') {
-        url = 'https://small.guinaben.com/v2/workbook/chapter/errorDownload'
+        url = 'https://api.guinaben.com/workbook/chapter/errorDownload'
         options = {
           chapterId: id
         }
       } else {
-        url = 'https://small.guinaben.com/v2/resource/download/new/'
+        url = 'https://api.guinaben.com/resource/download/new/'
         options = {
           id: id,
           type: this.tag
@@ -175,6 +175,7 @@
       return new Promise((resolve, reject) => {
         wepy.request({
           url: url,
+          method: 'POST',
           data: {
             ...options
           },
@@ -194,7 +195,7 @@
             } else {
               wepy.showModal({
                 title: '提示',
-                content: res._value.msg,
+                content: '亲，超出任务了，明天再来吧！',
                 confirmText: '知道了',
                 showCancel: false
               })
@@ -218,7 +219,7 @@
     }
 
     onShow() {
-      let email = wepy.getStorageSync('gnb_middle_User').email
+      let email = wepy.getStorageSync('gnb_middle_user').email
       // 获取邮箱和邮箱类型
       this.form_email.value = email.split('@')[0]
       let type = `@${email.split('@')[1]}`
