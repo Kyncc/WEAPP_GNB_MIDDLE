@@ -72,7 +72,7 @@ export default class MyPay extends wepy.page {
         url: 'https://wechat.guinaben.com/mini-program/pay',
         data: {
           goodType: id,
-          app: 'senior'
+          app: 'middle'
         },
         success (res) {
           resolve(res)

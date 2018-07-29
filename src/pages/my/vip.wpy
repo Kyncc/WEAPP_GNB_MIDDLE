@@ -53,7 +53,7 @@
           url: 'https://wechat.guinaben.com/mini-program/pay',
           data: {
             goodType: 12,
-            app: 'senior'
+            app: 'middle'
           },
           success (res) {
             resolve(res)
