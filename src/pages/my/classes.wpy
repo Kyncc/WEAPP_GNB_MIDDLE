@@ -49,7 +49,7 @@
       code: {
         title: '',
         value: '',
-        placeholder: '请输入学校编码'
+        placeholder: '请输入班级编码'
       },
       classes: []
     }
