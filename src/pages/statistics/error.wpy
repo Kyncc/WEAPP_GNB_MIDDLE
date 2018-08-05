@@ -22,7 +22,7 @@
     <scroll-view scroll-y style="height: {{scrollHeight}}px;padding-bottom: 40px;" lower-threshold="200" bindscrolltolower="_loadMore">
       <repeat for="{{error}}" key="index" index="index" item="item">
         <view class="zan-panel">
-          <view class="zan-cell zan-font-12 zan-font--primary" style="padding: 7px;height:30px;line-height: 30px;">
+          <view class="zan-cell zan-font-12  zan-c-gray-darker" style="padding: 7px;height:30px;line-height: 30px;">
             {{item.workbookName}}
           </view>
           <view class="zan-cell" style="padding: 5px 0" bindtap='_preview({{item.errorImg.url}})'>
