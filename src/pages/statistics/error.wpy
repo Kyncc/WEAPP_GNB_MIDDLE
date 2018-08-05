@@ -22,16 +22,19 @@
     <scroll-view scroll-y style="height: {{scrollHeight}}px;padding-bottom: 40px;" lower-threshold="200" bindscrolltolower="_loadMore">
       <repeat for="{{error}}" key="index" index="index" item="item">
         <view class="zan-panel">
+          <view class="zan-cell zan-font-12 zan-font--primary" style="padding: 7px;height:30px;line-height: 30px;">
+            {{item.workbookName}}
+          </view>
           <view class="zan-cell" style="padding: 5px 0" bindtap='_preview({{item.errorImg.url}})'>
             <image mode="aspectFit" style="width:100%;height:{{ item.errorImg.height/4 }}px" src="{{item.errorImg.url}}?mageMogr2/auto-orient/thumbnail/750x/format/jpg/interlace/1/blur/1x0/quality/100|imageslim" lazy-load="true"/>
           </view>
           <view class="zan-cell zan-font-12" style="padding: 7px;height:30px;line-height: 30px;">
             <view class="zan-cell__bd zan-row">
               <!--练习册名称点击出次数-->
-              <view class="zan-col zan-col-13 {{item.count ? 'zan-font--orange' : 'zan-font--primary'}}" bindtap='_count({{item.count}})'>
-                {{item.workbookName}}
+              <view class="zan-col zan-col-12 {{item.count ? 'zan-font--orange' : 'zan-font--primary'}}" bindtap='_count({{item.count}})'>
+                {{item.name}}
               </view>
-              <view class="zan-col zan-col-5 zan-font--primary" wx:if="{{item.downNum !== 0 }}">下载：{{item.downNum}}</view>
+              <view class="zan-col zan-col-5 zan-font--primary {{item.name ? '' : 'zan-col-offset-8'}}">下载：{{item.downNum}}</view>
               <!--订正的操作-->
               <view class=" {{item.downNum !== 0 ? 'zan-col zan-col-6':'zan-col zan-col-6 zan-col-offset-5'}} " style="text-align: right">
                 <picker bindchange="_reviseChange" data-current="{{index}}" value="{{item.revise === 'true' ? 1 : 0}}" range="{{revise.array}}" range-key="name">
