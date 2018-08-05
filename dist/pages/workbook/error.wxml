@@ -8,8 +8,8 @@
           </view>
           <view class="zan-cell zan-font-12 _74bab7e" style="padding: 10px 15px">
             <view class="zan-cell__bd zan-row _74bab7e" style="color:#3fc6c6">
-              <view class="zan-col zan-col-10 _74bab7e">{{item.name}}</view>
               <view class="zan-col zan-col-10 _74bab7e">下载：{{item.downNum}}</view>
+              <view class="zan-col zan-col-10 _74bab7e">{{item.name}}</view>
             </view>
           </view>
         </view>
