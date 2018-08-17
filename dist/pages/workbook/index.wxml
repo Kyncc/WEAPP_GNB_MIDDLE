@@ -53,7 +53,7 @@
               <view class="zan-card__left-col zan-font-16 _ed7e7ea" style="margin: 36rpx 0 12rpx;">拍错题</view>
             </view>
             <view class="zan-card__detail-row zan-c-gray-darker _ed7e7ea">
-              <view class="zan-card__left-col zan-font-14 _ed7e7ea" style="margin-bottom: 10rpx;">我是文案</view>
+              <view class="zan-card__left-col zan-font-14 _ed7e7ea" style="margin-bottom: 10rpx;">零散错题，拍照提交</view>
             </view>
           </view>
         </view>
