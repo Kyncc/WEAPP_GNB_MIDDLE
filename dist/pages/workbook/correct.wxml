@@ -4,6 +4,6 @@
     <view class="correct_content _1ee01e3">{{result.content}}</view>
     <view class="correct_date zan-center zan-font-14 _1ee01e3">{{result.date}}</view>
     <view class="correct_app zan-center zan-font-14 _1ee01e3">归纳本</view>
-    <button class="share_button _1ee01e3" open-type="share">分享</button>
+    <button class="share_button _1ee01e3" open-type="share">炫耀</button>
     <image src="../../common/resources/chapterExerciseCorrect.jpg" style="width:750rpx;height:100vh" mode="aspectFit" class="_1ee01e3"/>
   </view>

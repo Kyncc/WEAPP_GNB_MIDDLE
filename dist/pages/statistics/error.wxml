@@ -3,18 +3,21 @@
     <scroll-view scroll-y style="height: {{scrollHeight}}px;padding-bottom: 40px;" lower-threshold="200" bindscrolltolower="_loadMore">
       <block wx:for="{{error}}" wx:for-index="index" wx:for-item="item" wx:key="index">
         <view class="zan-panel">
+          <view class="zan-cell zan-font-12 zan-c-gray-darker" style="padding: 7px;height:30px;line-height: 30px;">
+            {{item.workbookName}}
+          </view>
           <view class="zan-cell" style="padding: 5px 0" bindtap="_preview" data-wpy_preview-a="{{item.errorImg.url}}">
             <image mode="aspectFit" style="width:100%;height:{{ item.errorImg.height/4 }}px" src="{{item.errorImg.url}}?mageMogr2/auto-orient/thumbnail/750x/format/jpg/interlace/1/blur/1x0/quality/100|imageslim" lazy-load="true"/>
           </view>
-          <view class="zan-cell zan-font-12" style="padding: 7px 15px;height:30px;line-height: 30px;">
+          <view class="zan-cell zan-font-12" style="padding: 7px;height:30px;line-height: 30px;">
             <view class="zan-cell__bd zan-row">
               <!--练习册名称点击出次数-->
-              <view class="zan-col zan-col-8 {{item.count ? 'zan-font--orange' : 'zan-font--primary'}}" bindtap="_count" data-wpy_count-a="{{item.count}}">
-                {{item.workbookName}}
+              <view class="zan-col zan-col-6 zan-font--primary">下载：{{item.downNum}}</view>
+              <view class="zan-col zan-col-12 {{item.count ? 'zan-font--orange' : 'zan-font--primary'}}" bindtap="_count" data-wpy_count-a="{{item.count}}">
+                {{item.name}}
               </view>
-              <view class="zan-col zan-col-9 zan-font--primary">下载：{{item.downNum}}</view>
               <!--订正的操作-->
-              <view class="zan-col zan-col-7">
+              <view class=" {{item.name.length !== 0 ? 'zan-col zan-col-6':'zan-col zan-col-6 zan-col-offset-12'}} " style="text-align: right">
                 <picker bindchange="_reviseChange" data-current="{{index}}" value="{{item.revise === 'true' ? 1 : 0}}" range="{{revise.array}}" range-key="name">
                   <button  wx:if="{{item.revise === 'null'}}" class="zan-btn zan-btn--small zan-btn--disabled">订　正</button>
                   <button  wx:elif="{{item.revise === 'true'}}" class="zan-btn zan-btn--small zan-btn--plain zan-btn--primary">搞对了</button>
@@ -27,7 +30,7 @@
       </block>
       <view wx:if="{{count === 0}}" class="zan-font-16 zan-center" style="padding: 20px 0;">
         <p>全部订正完成！</p>
-      </view> 
+      </view>
       
 <block wx:if="{{count !== 0}}">
   <block  wx:if="{{$zanLoadmore1$nomore}}">

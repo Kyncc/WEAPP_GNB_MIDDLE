@@ -1,1 +1,3 @@
-.workbookIndex .header._ed7e7ea{height:40px;width:100%;position:fixed;top:0;left:0;z-index:2}.add_button._ed7e7ea{position:fixed;background:#4cc0be;color:#fff;font-size:70rpx;height:120rpx;line-height:110rpx;width:120rpx;border-radius:50%;bottom:5%;right:5%;text-align:center}
+@import "./../../components/gnb-subjectSelect.wxss";
+@import "./../../components/gnb-textbookSelect.wxss";
+.workbookIndex .header._ed7e7ea{height:25px;padding:10px 0 0;width:100%;position:fixed;top:0;left:0;z-index:2;background:#F9F9F9}.add_button._ed7e7ea{position:fixed;height:100rpx;width:100rpx;bottom:5%;right:5%}

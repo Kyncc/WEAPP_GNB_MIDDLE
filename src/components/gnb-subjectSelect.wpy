@@ -1,0 +1,68 @@
+<template>
+  <picker sclass="picker zan-c-gray-darker" bindchange="bindPickerChange" range="{{ list }}" value="{{ index }}" range-key="name">
+    <view class="picker zan-c-gray-darker">
+      {{list[index].name}}
+      <view class="zan-arrow"></view>
+    </view>
+  </picker>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class gnbSubjectSelect extends wepy.component {
+  props = {
+    subject: {
+      type: String,
+      twoWay: true
+    },
+    list: {
+      type: Array,
+      default: [],
+      twoWay: true
+    }
+  }
+  data = {
+    index: 0
+  }
+  watch = {
+    subject (val) {
+      if (this.list.length) {
+        this.list.forEach((item, index) => {
+          if (item.id.toString() === val.toString()) {
+            this.index = index
+            this.$apply()
+            return {}
+          }
+        })
+      }
+    },
+    list (val) {
+      this.list.forEach((item, index) => {
+        if (item.id.toString() === this.subject.toString()) {
+          this.index = index
+          this.$apply()
+          return {}
+        }
+      })
+    }
+  }
+  methods = {
+    bindPickerChange (e) {
+      this.index = e.detail.value
+      this.subject = this.list[this.index].id
+      this.$emit('event', this.list[this.index].id)
+      this.$apply()
+    }
+  }
+}
+</script>
+<style lang="less">
+.picker{
+  text-align: center;
+  .zan-arrow{
+    position: static;
+    rotate: 90deg;
+  }
+}
+</style>

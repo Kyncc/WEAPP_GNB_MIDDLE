@@ -26,7 +26,7 @@
   <view class="container myIndex">
     <view class="zan-row zan-center" style="padding-top:60rpx;position: relative">
       <navigator url='/pages/my/info' hover-class="none">
-        <image class="zan-col zan-col-24" class="userinfo-avatar" src='{{userInfo.headImg}}' mode='scaleToFill'/>
+        <image class="userinfo-avatar" src='{{userInfo.headImg}}' mode='scaleToFill'/>
         <image wx:if="{{ userInfo.vip != 0 }}" class="userinfo-vip" src='../../common/resources/VIP1.png' mode='scaleToFill'/>
         <text class="zan-col zan-col-24 zan-font-22">{{userInfo.name}}</text>
         <text class="zan-arrow"></text>
@@ -45,16 +45,16 @@
           <text>我的班级</text>
         </view>
       </view>
-      <!-- <view wx:if="{{userInfo.refund}}" class="zan-font-16 zan-cell" style="padding:5px 15px 15px" bindtap="_refund">
+      <view class="zan-font-16 zan-cell" bindtap="_into('/pages/my/contact')" style="padding:5px 15px 15px">
         <view class="zan-cell__bd">
-          <image src='../../common/resources/icon_tuikuan.png' style="width:28px;height:28px;position:relative;top:8px;margin-right:5px;" mode='scaleToFill'/>
-          <text>申请退款</text>
+          <image src='../../common/resources/icon_tel.png' style="width:28px;height:28px;position:relative;top:8px;margin-right:5px;" mode='scaleToFill'/>
+          <text>联系我们</text>
         </view>
-      </view> -->
-      <view class="zan-font-16 zan-cell" bindtap="_open" style="padding:5px 15px 15px">
+      </view>
+      <view class="zan-font-16 zan-cell" bindtap="_into('/pages/my/join')" style="padding:5px 15px 15px">
         <view class="zan-cell__bd">
-          <image src='../../common/resources/icon_weapp.png' style="width:28px;height:28px;position:relative;top:8px;margin-right:5px;" mode='scaleToFill'/>
-          <text>到小学逛逛</text>
+          <image src='../../common/resources/icon_user_jm.png' style="width:28px;height:28px;position:relative;top:8px;margin-right:5px;" mode='scaleToFill'/>
+          <text>加盟代理</text>
         </view>
       </view>
     </view>
@@ -88,7 +88,7 @@
       _copy () {
         wepy.setClipboardData({
           data: 'guinaben3456',
-          success: function(res) {
+          success (res) {
             wepy.showToast({
               title: '复制成功!',
               icon: 'none'
@@ -110,20 +110,17 @@
     }
 
     async onShow () {
-      this.userInfo.name = wepy.getStorageSync('gnb_middle_User').name
-      this.userInfo.headImg = wepy.getStorageSync('gnb_middle_User').headImg
-      this.userInfo.vip = wepy.getStorageSync('gnb_middle_User').vip
+      this.userInfo.name = wepy.getStorageSync('gnb_middle_user').name
+      this.userInfo.headImg = wepy.getStorageSync('gnb_middle_user').headImg
+      this.userInfo.vip = wepy.getStorageSync('gnb_middle_user').vip
       this.$apply()
     }
 
     onShareAppMessage (res) {
-      if (res.from === 'button') {
-        console.log(res.target)
-      }
       return {
         title: '各位家长：这样记错题，速度快、好处多',
         imageUrl: 'http://img.guinaben.com/gnb_miniprogram_share.jpg?imageView2/0/q/75|imageslim',
-        path: '/pages/init/entry'
+        path: '/pages/workbook/index'
       }
     }
   }

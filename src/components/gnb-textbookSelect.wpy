@@ -1,7 +1,7 @@
 <template>
-  <picker style="margin-top: 0" class="zan-panel" bindchange="bindPickerChange" range="{{ textbook }}" value="{{ value }}" range-key="name">
-    <view class="picker zan-cell">
-      人教版:　{{name}}
+  <picker class="picker zan-c-gray-darker" bindchange="bindPickerChange" range="{{ list }}" value="{{ index }}" range-key="name">
+    <view class="picker zan-c-gray-darker">
+      {{list[index].name}}
       <view class="zan-arrow"></view>
     </view>
   </picker>
@@ -10,45 +10,60 @@
 <script>
 import wepy from 'wepy'
 
-export default class gnbWookbookSelect extends wepy.component {
+export default class gnbTextbookSelect extends wepy.component {
   props = {
-    value: {
-      type: String,
-      twoWay: true
-    },
-    key: {
-      type: String,
-      twoWay: true
-    },
     textbook: {
+      type: String,
+      twoWay: true
+    },
+    list: {
       type: Array,
       default: [],
       twoWay: true
     }
   }
   data = {
-    name: ''
+    index: 0
+  }
+  watch = {
+    textbook (val) {
+      if (this.list.length) {
+        this.list.forEach((item, index) => {
+          if (item.id.toString() === val.toString()) {
+            this.index = index
+            this.$apply()
+            return {}
+          }
+        })
+      }
+    },
+    list (val) {
+      this.list.forEach((item, index) => {
+        if (item.id.toString() === this.textbook.toString()) {
+          this.index = index
+          this.$apply()
+          return {}
+        }
+      })
+    }
   }
   methods = {
     bindPickerChange (e) {
-      this.value = e.detail.value
-      this.key = this.textbook[e.detail.value].id
-      this.name = this.textbook[e.detail.value].name
-      this.$emit('event', this.key)
+      this.index = e.detail.value
+      this.textbook = this.list[this.index].id
+      this.$emit('event', this.list[this.index].id)
       this.$apply()
-    }
-  }
-  watch = {
-    value () {
-      for (let i = 0; i < this.textbook.length; i++) {
-        if (this.textbook[i].id === this.value) {
-          this.key = this.textbook[i].id
-          this.name = this.textbook[i].name
-          this.$apply()
-          return
-        }
-      }
     }
   }
 }
 </script>
+
+<style lang="less">
+.picker{
+  text-align: center;
+  .zan-arrow{
+    rotate: 90deg;
+    margin-top: -10rpx;
+  }
+}
+</style>

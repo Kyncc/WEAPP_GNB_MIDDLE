@@ -1,5 +1,5 @@
 <style lang="less">
-.paperChengpin{
+.resourceChengpin{
   .header{
     padding:3px 0;
     height:40px;
@@ -17,13 +17,13 @@
 </style>
 
 <template>
-  <view class="container paperChengpin">
+  <view class="container resourceChengpin">
     <view class="zan-row zan-cell header">
       <view class="zan-col zan-col-12">
         <button class="zan-col-offset-1 zan-btn zan-btn--small {{options.tag === 'hot' ? 'zan-btn--primary':''}}" bindtap='_select(hot)'>精品</button>
         <button class="zan-col-offset-1 zan-btn zan-btn--small {{options.tag === 'new' ? 'zan-btn--primary':''}}" bindtap='_select(new)'>时间</button>
       </view>
-      <navigator open-type="navigateTo" url="/pages/paper/chengPinFilter" hover-class="none"
+      <navigator open-type="navigateTo" url="/pages/resource/chengPinFilter" hover-class="none"
         class="zan-col zan-col-offset-5 zan-col-6 zan-right" style="color: #3fc6c6">
         筛选
       </navigator>
@@ -51,10 +51,10 @@
 <script>
   import wepy from 'wepy'
   import zanLoadMore from '@/components/zan-loadmore'
-
-  export default class paperChengpin extends wepy.page {
+  
+  export default class resourceChengpin extends wepy.page {
     config = {
-      navigationBarTitleText: '成品试卷'
+      navigationBarTitleText: '找试卷'
     }
 
     data = {
@@ -79,15 +79,15 @@
       /** 进入下载 */
       _download (item) {
         // 不是会员跳转到VIP购买, 是跳转到下载
-        if (Number(wepy.getStorageSync('gnb_middle_User').vip)) {
-          wepy.navigateTo({url: `/pages/my/email?id=${item.id}&type=paper&tag=2`})
+        if (Number(wepy.getStorageSync('gnb_middle_user').vip)) {
+          wepy.navigateTo({url: `/pages/my/email?id=${item.id}&type=resource&tag=2`})
         } else {
           wepy.navigateTo({url: `/pages/my/vip`})
         }
       },
       /** 选择标签 */
       _select (value) {
-        this.$parent.globalData.paperChengpinFilter.tag = value
+        this.$parent.globalData.resourceChengpinFilter.tag = value
         this.options.tag = value
         this._getList()
       },
@@ -96,7 +96,7 @@
         // 无更多数据或者正在加载则返回
         if (this.loading || this.nomore) return
         this.loading = true
-        this._getPaperList(this.offset, this.options).then((res) => {
+        this._getResourceList(this.offset, this.options).then((res) => {
           this.loading = false
           this.list = this.list.concat(res.list)
           this.offset = res.offset
@@ -109,10 +109,10 @@
       }
     }
     /** 试卷下载 */
-    _getPaperList (offset, options) {
+    _getResourceList (offset, options) {
       return new Promise((resolve, reject) => {
         wepy.request({
-          url: 'https://small.guinaben.com/v2/resource/finished',
+          url: 'https://api.guinaben.com/resource/finished',
           data: {
             offset: offset,
             options: {
@@ -130,7 +130,7 @@
       this.offset = ''
       this.nomore = false
       try {
-        let result = await this._getPaperList(this.offset, this.options)
+        let result = await this._getResourceList(this.offset, this.options)
         this.loading = false
         this.list = result.list
         this.offset = result.offset
@@ -152,8 +152,8 @@
     }
 
     onShow() {
-      this.options.type = this.$parent.globalData.paperChengpinFilter.type
-      this.options.year = this.$parent.globalData.paperChengpinFilter.year
+      this.options.type = this.$parent.globalData.resourceChengpinFilter.type
+      this.options.year = this.$parent.globalData.resourceChengpinFilter.year
       this._getList()
       this.$apply()
     }

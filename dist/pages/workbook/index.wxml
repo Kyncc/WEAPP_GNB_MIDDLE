@@ -1,37 +1,63 @@
 
   <view class="container workbookIndex _ed7e7ea">
-    
-  <picker style="margin-top: 0" class="zan-panel header _ed7e7ea" bindchange="$gnbTextbookSelect$bindPickerChange" range="{{ $gnbTextbookSelect$textbook }}" value="{{ $gnbTextbookSelect$value }}" range-key="name">
-    <view class="picker zan-cell">
-      人教版:　{{$gnbTextbookSelect$name}}
+    <!--科目教材切换-->
+    <view class="header zan-row zan-font-14 _ed7e7ea">
+      <view class="zan-col zan-col-12 _ed7e7ea">
+        
+  <picker sclass="picker zan-c-gray-darker" bindchange="$gnbSubjectSelect$bindPickerChange" range="{{ $gnbSubjectSelect$list }}" value="{{ $gnbSubjectSelect$index }}" range-key="name" class="_ed7e7ea">
+    <view class="picker zan-c-gray-darker">
+      {{$gnbSubjectSelect$list[$gnbSubjectSelect$index].name}}
       <view class="zan-arrow"/>
     </view>
   </picker>
 
-    <view class="_ed7e7ea">
-      <!--练习册区间-->
-      <view class="zan-panel _ed7e7ea" style="margin-top: 38px;">
-        <scroll class="_ed7e7ea">
-          <block class="_ed7e7ea" wx:for="{{ workbookList }}" wx:for-index="pindex" wx:for-item="item" wx:key="pindex">
-            <view class="zan-card _ed7e7ea" bindtap="_intoChapter" data-wpy_intochapter-a="{{item}}">
-              <!--练习册图片-->
-              <view class="zan-card__thumb _ed7e7ea">
-                <image class="zan-card__img _ed7e7ea" src="{{ item.img.url }}?imageView2/2/w/120/h/180/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
-              </view>
-              <!--练习册详情-->
-              <view class="zan-card__detail _ed7e7ea">
-                <view class="zan-card__detail-row _ed7e7ea">
-                  <view class="zan-card__left-col zan-c-gray zan-font-14 _ed7e7ea" style="color:#3FC6C6;margin: 8rpx 0 12rpx;">{{item.year}}版</view>
-                </view>
-                <view class="zan-card__detail-row zan-c-gray-darker _ed7e7ea">
-                  <view class="zan-card__left-col zan-font-16 _ed7e7ea" style="margin-bottom: 10rpx;">{{item.name}}</view>
-                  <view class="zan-card__left-col zan-font-14 _ed7e7ea" style="color:#3FC6C6;margin-bottom: 10rpx;">{{item.number}}人正在使用</view>
-                </view>
-              </view>
-            </view>
-          </block>
-        </scroll>
+      </view>
+      <view class="zan-col zan-col-12 _ed7e7ea">
+        
+  <picker class="picker zan-c-gray-darker _ed7e7ea" bindchange="$gnbTextbookSelect$bindPickerChange" range="{{ $gnbTextbookSelect$list }}" value="{{ $gnbTextbookSelect$index }}" range-key="name">
+    <view class="picker zan-c-gray-darker">
+      {{$gnbTextbookSelect$list[$gnbTextbookSelect$index].name}}
+      <view class="zan-arrow"/>
+    </view>
+  </picker>
+
       </view>
     </view>
-    <button class="add_button _ed7e7ea" bindtap="_initAdd">+</button>
+    <!--练习册区间-->
+    <view class="zan-panel _ed7e7ea" style="margin-top: 40px;">
+      <scroll class="_ed7e7ea">
+        <block class="_ed7e7ea" wx:for="{{ workbookList }}" wx:for-index="pindex" wx:for-item="item" wx:key="pindex">
+          <view class="zan-card _ed7e7ea" bindtap="_intoChapter" data-wpy_intochapter-a="{{item}}">
+            <!--练习册图片-->
+            <view class="zan-card__thumb _ed7e7ea">
+              <image class="zan-card__img _ed7e7ea" src="{{ item.img.url }}?imageView2/2/w/120/h/180/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
+            </view>
+            <!--练习册详情-->
+            <view class="zan-card__detail _ed7e7ea">
+              <view class="zan-card__detail-row _ed7e7ea">
+                <view class="zan-card__left-col zan-c-gray zan-font-14 _ed7e7ea" style="color:#3FC6C6;margin: 8rpx 0 12rpx;">{{item.year}}版</view>
+              </view>
+              <view class="zan-card__detail-row zan-c-gray-darker _ed7e7ea">
+                <view class="zan-card__left-col zan-font-16 _ed7e7ea" style="margin-bottom: 10rpx;">{{item.name}}</view>
+                <view class="zan-card__left-col zan-font-14 _ed7e7ea" style="color:#3FC6C6;margin-bottom: 10rpx;">{{item.number}}人正在使用</view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="zan-card _ed7e7ea" bindtap="_initCamera" data-wpy_initcamera-a="">
+          <view class="zan-card__thumb _ed7e7ea">
+            <image class="zan-card__img _ed7e7ea" src="../../common/resources/camera.png" mode="aspectFit" lazy-load="true"/>
+          </view>
+          <view class="zan-card__detail _ed7e7ea">
+            <view class="zan-card__detail-row _ed7e7ea">
+              <view class="zan-card__left-col zan-font-16 _ed7e7ea" style="margin: 36rpx 0 12rpx;">拍错题</view>
+            </view>
+            <view class="zan-card__detail-row zan-c-gray-darker _ed7e7ea">
+              <view class="zan-card__left-col zan-font-14 _ed7e7ea" style="margin-bottom: 10rpx;">零散错题，拍照提交</view>
+            </view>
+          </view>
+        </view>
+      </scroll>
+    </view>
+    <image class="add_button _ed7e7ea" bindtap="_initAdd" src="../../common/resources/add.png" mode="scaleToFill"/>
   </view>
