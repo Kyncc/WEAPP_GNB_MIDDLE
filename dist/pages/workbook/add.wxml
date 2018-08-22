@@ -48,26 +48,28 @@
     <view class="zan-panel" style="margin-top:91px;">
       <scroll>
         <block wx:for="{{ workbookList }}" wx:for-index="pindex" wx:for-item="item" wx:key="pindex">
-          <view class="zan-card">
+          <view class="zan-card zan-row" bindtap="_telDialog" data-wpy_teldialog-a="{{ item.isfree }}">
             <!--练习册图片-->
             <view class="zan-card__thumb" bindtap="_preview" data-wpy_preview-a="{{ item.img.url }}">
               <image class="zan-card__img" src="{{ item.img.url }}?imageView2/2/w/120/h/180/format/jpg/q/75" mode="aspectFit" lazy-load="true"/>
             </view>
             <!--练习册详情-->
             <view class="zan-card__detail">
-              <view class="zan-card__detail-row">
+              <view class="zan-card__detail-row" style="padding-top: 10rpx;">
+                <button  wx:if="{{item.isfree}}" class="zan-btn zan-btn--primary zan-btn--mini">免费</button>
+                <button  wx:else class="zan-btn zan-btn--warn zan-btn--mini">定制</button>
                 <view class="zan-card__left-col zan-font-14" style="color:#3FC6C6">{{item.year}}版</view>
               </view>
               <view class="zan-card__detail-row zan-c-gray-darker">
                 <!--取消-->
-                <view class="zan-card__right-col"  wx:if="{{ !item.status }}">
+                <view class="zan-card__right-col" wx:if="{{ !item.status }}">
                   <view>
-                    <image src="../../common/resources/workbook_cancel.png" bindtap="_edit" mode="aspectFit" style="width: 24px;height:24px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}"/>
+                    <image src="../../common/resources/workbook_cancel.png" bindtap="_edit" mode="aspectFit" style="width: 24px;height:24px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}" data-wpy_edit-c="{{item.isfree}}"/>
                   </view>
                 </view>
                 <!--添加-->
-                <view class="zan-card__right-col"  wx:else>
-                  <image src="../../common/resources/workbook_add.png" bindtap="_edit" mode="aspectFit" style="width: 24px;height:24px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}"/>
+                <view class="zan-card__right-col" wx:else>
+                  <image src="../../common/resources/workbook_add.png" bindtap="_edit" mode="aspectFit" style="width: 24px;height:24px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}" data-wpy_edit-c="{{item.isfree}}"/>
                 </view>
                 <view class="zan-card__left-col zan-font-16" style="margin-bottom: 3px;">{{item.name}}</view>
                 <block wx:for="{{item.version}}" wx:for-index="index" wx:for-item="version" wx:key="index">
@@ -78,5 +80,10 @@
           </view>
         </block>
       </scroll>
+      <view class="no-data" wx:if="{{ !loading && (workbookList.length === 0)}}" bindtap="_tel">
+        <view>暂无练习册,定制专属练习册请咨询</view>
+        <view class="van-font-16 tel">1736279044</view>
+        <view class="van-font-14" style="color: #FDCA3A">点击手机号拨打</view>
+      </view>
     </view>
   </view>

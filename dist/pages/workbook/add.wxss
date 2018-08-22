@@ -1,4 +1,4 @@
 @import "./../../components/gnb-subjectSelect.wxss";
 @import "./../../components/gnb-versionSelect.wxss";
 @import "./../../components/gnb-textbookSelect.wxss";
-.workbookAdd .zan-btn{border-radius:0}.workbookAdd .search{position:fixed;top:0;left:0;width:100%;height:80px;z-index:999;margin-top:0;background:#f9f9f9}.workbookAdd .search .header{height:20px;padding:10px 0}.workbookAdd .search .zan-panel{margin-top:0}
+.workbookAdd .zan-btn{border-radius:0}.workbookAdd .search{position:fixed;top:0;left:0;width:100%;height:80px;z-index:999;margin-top:0;background:#f9f9f9}.workbookAdd .search .header{height:20px;padding:10px 0}.workbookAdd .search .zan-panel{margin-top:0}.workbookAdd .no-data{padding:20px 0;text-align:center;font-size:14px}.workbookAdd .no-data .tel{padding:10px 0;font-size:24px;color:#1cae8e}
