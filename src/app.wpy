@@ -41,6 +41,16 @@
 .zan-card__detail {
 	margin-left: 70px;
 }
+.zan-triangle{
+  display: inline-block;
+  position: relative;
+  height: 0;
+  width: 0;
+  top: 4px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
 </style>
 <script>
 import wepy from 'wepy'

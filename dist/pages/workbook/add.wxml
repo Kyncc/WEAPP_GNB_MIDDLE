@@ -8,7 +8,7 @@
   <picker sclass="picker zan-c-gray-darker" bindchange="$gnbSubjectSelect$bindPickerChange" range="{{ $gnbSubjectSelect$list }}" value="{{ $gnbSubjectSelect$index }}" range-key="name">
     <view class="picker zan-c-gray-darker">
       {{$gnbSubjectSelect$list[$gnbSubjectSelect$index].name}}
-      <view class="zan-arrow"/>
+      <view class="zan-triangle"/>
     </view>
   </picker>
 
@@ -18,7 +18,7 @@
   <picker class="picker zan-c-gray-darker" bindchange="$gnbVersionSelect$bindPickerChange" range="{{ $gnbVersionSelect$list }}" value="{{ $gnbVersionSelect$index }}" range-key="name">
     <view class="picker zan-c-gray-darker">
       {{$gnbVersionSelect$list[$gnbVersionSelect$index].name}}
-      <view class="zan-arrow"/>
+      <view class="zan-triangle"/>
     </view>
   </picker>
 
@@ -28,7 +28,7 @@
   <picker class="picker zan-c-gray-darker" bindchange="$gnbTextbookSelect$bindPickerChange" range="{{ $gnbTextbookSelect$list }}" value="{{ $gnbTextbookSelect$index }}" range-key="name">
     <view class="picker zan-c-gray-darker">
       {{$gnbTextbookSelect$list[$gnbTextbookSelect$index].name}}
-      <view class="zan-arrow"/>
+      <view class="zan-triangle"/>
     </view>
   </picker>
 
@@ -82,7 +82,7 @@
       </scroll>
       <view class="no-data" wx:if="{{ !loading && (workbookList.length === 0)}}" bindtap="_tel">
         <view>暂无练习册,定制专属练习册请咨询</view>
-        <view class="van-font-16 tel">1736279044</view>
+        <view class="van-font-16 tel">17316279044</view>
         <view class="van-font-14" style="color: #FDCA3A">点击手机号拨打</view>
       </view>
     </view>

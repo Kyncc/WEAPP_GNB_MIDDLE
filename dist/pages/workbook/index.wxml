@@ -7,7 +7,7 @@
   <picker sclass="picker zan-c-gray-darker" bindchange="$gnbSubjectSelect$bindPickerChange" range="{{ $gnbSubjectSelect$list }}" value="{{ $gnbSubjectSelect$index }}" range-key="name" class="_ed7e7ea">
     <view class="picker zan-c-gray-darker">
       {{$gnbSubjectSelect$list[$gnbSubjectSelect$index].name}}
-      <view class="zan-arrow"/>
+      <view class="zan-triangle"/>
     </view>
   </picker>
 
@@ -17,7 +17,7 @@
   <picker class="picker zan-c-gray-darker _ed7e7ea" bindchange="$gnbTextbookSelect$bindPickerChange" range="{{ $gnbTextbookSelect$list }}" value="{{ $gnbTextbookSelect$index }}" range-key="name">
     <view class="picker zan-c-gray-darker">
       {{$gnbTextbookSelect$list[$gnbTextbookSelect$index].name}}
-      <view class="zan-arrow"/>
+      <view class="zan-triangle"/>
     </view>
   </picker>
 
