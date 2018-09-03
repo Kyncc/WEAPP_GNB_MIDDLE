@@ -25,6 +25,13 @@
 .zan-font--orange{
   color: #f85;
 }
+.zan-btn--grey{
+  background: #fff;
+  color: #555;
+  &::after {
+    border-color:#555;
+  }
+}
 .zan-btn--primary{
   background-color: #3fc6c6;
   &::after {

@@ -56,22 +56,22 @@
             <!--练习册详情-->
             <view class="zan-card__detail">
               <view class="zan-card__detail-row" style="padding-top: 10rpx;">
-                <button  wx:if="{{item.isfree}}" class="zan-btn zan-btn--primary zan-btn--mini">免费</button>
-                <button  wx:else class="zan-btn zan-btn--warn zan-btn--mini">定制</button>
                 <view class="zan-card__left-col zan-font-14" style="color:#3FC6C6">{{item.year}}版</view>
               </view>
               <view class="zan-card__detail-row zan-c-gray-darker">
                 <!--取消-->
-                <view class="zan-card__right-col" wx:if="{{ !item.status }}">
+                <view class="zan-card__right-col"  wx:if="{{ !item.status }}">
                   <view>
                     <image src="../../common/resources/workbook_cancel.png" bindtap="_edit" mode="aspectFit" style="width: 24px;height:24px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}" data-wpy_edit-c="{{item.isfree}}"/>
                   </view>
                 </view>
                 <!--添加-->
-                <view class="zan-card__right-col" wx:else>
+                <view class="zan-card__right-col"  wx:else>
                   <image src="../../common/resources/workbook_add.png" bindtap="_edit" mode="aspectFit" style="width: 24px;height:24px;" data-wpy_edit-a="{{ pindex}}" data-wpy_edit-b="{{item.id}}" data-wpy_edit-c="{{item.isfree}}"/>
                 </view>
-                <view class="zan-card__left-col zan-font-16" style="margin-bottom: 3px;">{{item.name}}</view>
+                <view class="zan-card__left-col zan-font-16" style="margin-bottom: 3px;">
+                  {{item.name}}({{item.isfree ? '普编' : '定制'}})
+                </view>
                 <block wx:for="{{item.version}}" wx:for-index="index" wx:for-item="version" wx:key="index">
                   <view class="zan-card__left-col zan-c-gray zan-font-12" style="margin-bottom: 6rpx;">{{version}}</view>
                 </block>
