@@ -1,17 +1,20 @@
 
   <view class="container _74bab7e">
-    <scroll-view scroll-y="true" style="height: 100%;padding-bottom:70px;" scroll-with-animation="true" enable-back-to-top="true" class="_74bab7e">
-      <block class="_74bab7e" wx:for="{{error}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+    <scroll-view scroll-y="true" style="height:100%;padding-bottom:70px;" scroll-with-animation="true" enable-back-to-top="true" class="_74bab7e">
+      <block class="_74bab7e" wx:for="{{error}}" wx:for-index="index" wx:for-item="block" wx:key="pindex">
         <view class="zan-panel _74bab7e">
-          <view class="zan-cell _74bab7e" style="padding: 5px 0" bindtap="_preview" data-wpy_preview-a="{{item.errorImg.url}}">
-            <image mode="aspectFit" style="width:100%;height:{{ item.errorImg.height/4 }}px" src="{{item.errorImg.url}}?mageMogr2/auto-orient/thumbnail/750x/format/jpg/interlace/1/blur/1x0/quality/100|imageslim" lazy-load="true" class="_74bab7e"/>
-          </view>
-          <view class="zan-cell zan-font-12 _74bab7e" style="padding: 10px 15px">
-            <view class="zan-cell__bd zan-row _74bab7e" style="color:#3fc6c6">
-              <view class="zan-col zan-col-10 _74bab7e">下载：{{item.downNum}}</view>
-              <view class="zan-col zan-col-10 _74bab7e">{{item.name}}</view>
+          <view class="zan-panel-title zan-font-bold zan-c-black _74bab7e" style="margin-bottom: 5px;padding: 10px 5px">　{{ block.platename }}</view>
+          <block class="_74bab7e" wx:for="{{block.errors}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+            <view class="zan-cell _74bab7e" style="padding: 5px 0" bindtap="_preview" data-wpy_preview-a="{{item.errorImg.url}}">
+              <image mode="aspectFit" style="width:{{item.errorImg.width/4}};height:{{ item.errorImg.height/4 }}px;max-width: 100%" src="{{item.errorImg.url}}?mageMogr2/auto-orient/thumbnail/750x/format/jpg/interlace/1/blur/1x0/quality/100|imageslim" lazy-load="true" class="_74bab7e"/>
             </view>
-          </view>
+            <view class="zan-cell zan-font-12 _74bab7e" style="padding: 10px 15px">
+              <view class="zan-cell__bd zan-row _74bab7e" style="color:#3fc6c6">
+                <view class="zan-col zan-col-10 _74bab7e">下载：{{item.downNum}}</view>
+                <view class="zan-col zan-col-10 _74bab7e">{{item.name}}</view>
+              </view>
+            </view>
+          </block>
         </view>
       </block>
     </scroll-view>
