@@ -1,6 +1,6 @@
 {
-  "name": "gnb_primary_math",
-  "version": "1.0.0",
+  "name": "gnb_middle",
+  "version": "3.5.0",
   "description": "",
   "main": "dist/app.js",
   "scripts": {
@@ -12,8 +12,6 @@
   "author": "Hope",
   "license": "MIT",
   "dependencies": {
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
     "wepy": "^1.7.0",
     "wepy-async-function": "^1.4.4"
   },
@@ -29,6 +27,8 @@
     "eslint": "^5.5.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-html": "^4.0.5",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
